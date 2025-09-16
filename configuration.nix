@@ -31,6 +31,16 @@
     fade = true;
   };
 
+  services.logind.extraConfig = ''
+    IdleAction=ignore
+    IdleActionSec=0
+    HandleLidSwitch=ignore
+    HandleLidSwitchDocked=ignore
+    HandleSuspendKey=ignore
+    HandleHibernateKey=ignore
+  '';
+
+
   users.users.corentin = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
@@ -59,6 +69,11 @@
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
+  ];
+
+  hardware.enableAllFirmware = true;
+  boot.extraModulePackages = [
+    pkgs.linuxPackages.rtl8812au
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
