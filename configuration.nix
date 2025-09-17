@@ -40,7 +40,6 @@
     HandleHibernateKey=ignore
   '';
 
-
   users.users.corentin = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
@@ -75,7 +74,7 @@
   boot.extraModulePackages = [
     pkgs.linuxPackages.rtl8812au
   ];
-
+  
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   system.stateVersion = "25.05";
 }
