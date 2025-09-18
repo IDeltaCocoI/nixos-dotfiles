@@ -19,7 +19,7 @@
     autoRepeatInterval = 35;   
     windowManager.i3.enable = true;
     displayManager.sessionCommands = ''
-      xwallpaper --zoom ~/wallpapers/stormveil_castle.jpg
+      xwallpaper --zoom ~/nixos-dotfiles/wallpapers/stormveil_castle.jpg
     '';
   };
 
