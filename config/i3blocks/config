@@ -3,51 +3,57 @@ separator_block_width=0
 markup=none
 
 [cpu]
-interval=5
+interval=10
 separator=false
+color=#000000
 background=#FF5555
 
 [memory]
 separator=false
-interval=30
+interval=10
+color=#000000
 background=#FFAA00
 
 [disk]
-interval=30
+interval=60
 separator=false
+color=#000000
 background=#555555
 
 [battery]
-interval=30
+interval=10
 separator=false
+color=#000000
 background=#50FA7B
 
 [wifi]
 interval=10
 separator=false
+color=#000000
 background=#9B59B6
 
 [volume]
 interval=once
 signal=10
 separator=false
+color=#000000
 background=#1ABC9C
 
 [spotify_prev]
-interval=once
+interval=1
 separator=false
 color=#000000
 background=#1DB954
 
 [spotify_play]
-interval=once
+interval=1
 signal=20
 separator=false
 color=#000000
 background=#1DB954
 
 [spotify_next]
-interval=once
+interval=1
 separator=false
 color=#000000
 background=#1DB954

@@ -3,6 +3,11 @@
 # Affiche titre + artiste + barre de progression et boutons
 # Ne rien afficher si Spotify n'est pas en cours de lecture
 
+if [ ! -z "$BLOCK_BUTTON" ]; then
+    # Focus ou lance Spotify sans afficher le retour
+    i3-msg "[class=\"Spotify\"] focus" &>/dev/null || i3-msg exec spotify &>/dev/null
+fi
+
 # Vérifier si Spotify est actif
 playerctl --player=spotify status &>/dev/null || exit 0
 

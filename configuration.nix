@@ -16,17 +16,18 @@
   services.xserver = {
     enable = true;
     autoRepeatDelay = 200;
-    autoRepeatInterval = 35;   
+    autoRepeatInterval = 35;
     windowManager.i3.enable = true;
   };
 
-  services.displayManager.ly.enable = true; 
+  services.displayManager.ly.enable = true;
 
   services.picom = {
     enable = true;
     backend = "glx";
     fade = true;
   };
+
 
   services.logind.extraConfig = ''
     IdleAction=ignore

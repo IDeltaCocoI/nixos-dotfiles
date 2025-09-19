@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 # N'exécute play-pause que si clic (via $BLOCK_BUTTON)
+
+# Vérifier si Spotify est actif
+playerctl --player=spotify status &>/dev/null || exit 0
+
 if [ ! -z "$BLOCK_BUTTON" ]; then
     playerctl --player=spotify previous
 fi
