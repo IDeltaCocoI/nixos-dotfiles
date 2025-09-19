@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# i3blocks - volume
+# Affiche le volume actuel et l'état mute
+
+# Récupère le volume et le statut mute de la sortie Master
+VOL=$(amixer get Master | awk -F'[][]' '/Left:/ {print $2}')
+MUTE=$(amixer get Master | awk -F'[][]' '/Left:/ {print $4}')
+
+# Affichage
+if [ "$MUTE" = "off" ]; then
+    echo " VOL MUTE "
+else
+    echo " VOL $VOL "
+fi
+

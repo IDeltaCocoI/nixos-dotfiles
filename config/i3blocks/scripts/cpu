@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# i3blocks - cpu_usage
+# Affiche l'utilisation CPU globale avec 2 décimales (%)
+
+get_cpu_times() {
+    read -r _ user nice system idle iowait irq softirq steal guest guest_nice < /proc/stat
+    total=$((user + nice + system + idle + iowait + irq + softirq + steal))
+    echo "$idle $total"
+}
+
+# Première mesure
+read idle1 total1 < <(get_cpu_times)
+sleep 1
+# Deuxième mesure
+read idle2 total2 < <(get_cpu_times)
+
+# Deltas
+diff_idle=$((idle2 - idle1))
+diff_total=$((total2 - total1))
+diff_used=$((diff_total - diff_idle))
+
+# Utilisation CPU en %
+if [ "$diff_total" -gt 0 ]; then
+    usage_pct=$(awk -v u="$diff_used" -v t="$diff_total" 'BEGIN {printf "%.2f", (u / t) * 100}')
+else
+    usage_pct="0.00"
+fi
+
+echo " CPU ${usage_pct}% "
+

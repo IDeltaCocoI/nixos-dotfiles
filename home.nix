@@ -8,6 +8,7 @@ let
     nvim = "nvim";
     alacritty = "alacritty";
     rofi = "rofi";
+    i3blocks = "i3blocks";
   };
 in
 
@@ -36,6 +37,12 @@ in
     nil
     nixpkgs-fmt
     gcc
+    gnumake
     rofi
+    python3
+
+    i3blocks-gaps
+    alsa-utils
+    playerctl
   ];
 }

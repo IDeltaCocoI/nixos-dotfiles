@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# i3blocks - disk
+# Affiche l'utilisation d'un disque en % + Go utilisés / totaux
+
+# Définir le répertoire à surveiller (par défaut /)
+DIR=${DIR:-/}
+
+# Récupérer l'espace disque en kB
+read total used <<< $(df -k --output=size,used "$DIR" | tail -1)
+
+# Conversion en Go avec 2 décimales
+total_gb=$(awk -v t="$total" 'BEGIN {printf "%.2f", t/1024/1024}')
+used_gb=$(awk -v u="$used" 'BEGIN {printf "%.2f", u/1024/1024}')
+
+# Pourcentage utilisé
+pct=$(awk -v u="$used" -v t="$total" 'BEGIN {printf "%.2f", (u/t)*100}')
+
+echo " DISK ${pct}% (${used_gb}G / ${total_gb}G) "
+

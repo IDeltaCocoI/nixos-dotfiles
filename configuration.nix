@@ -8,7 +8,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "corentin-nixos";
+  networking.hostName = "Nixos";
   networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Paris";
@@ -18,9 +18,6 @@
     autoRepeatDelay = 200;
     autoRepeatInterval = 35;   
     windowManager.i3.enable = true;
-    displayManager.sessionCommands = ''
-      xwallpaper --zoom ~/nixos-dotfiles/wallpapers/stormveil_castle.jpg
-    '';
   };
 
   services.displayManager.ly.enable = true; 
@@ -61,9 +58,10 @@
     rofi
     pcmanfm
     spotify
+    pulseaudio
     discord
     git
-    neofetch
+    neofetch 
   ];
 
   fonts.packages = with pkgs; [
