@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+TIME=$(date '+%d-%m-%Y %H:%M:%S')
+DISPLAY=" $TIME "
+
+echo "$DISPLAY"

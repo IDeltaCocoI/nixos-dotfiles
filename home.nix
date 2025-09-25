@@ -9,6 +9,7 @@ let
     alacritty = "alacritty";
     rofi = "rofi";
     i3blocks = "i3blocks";
+    polybar = "polybar";
   }; 
 in 
 
@@ -34,8 +35,18 @@ in
 
   home.packages = with pkgs; [ 
     alacritty
+    
+    # Neovim pkgs
     neovim 
-    ripgrep 
+    ripgrep
+    fd
+    nodejs
+    lua
+    luarocks
+    tree-sitter
+    xclip
+    clang-tools
+    
     nil 
     nixpkgs-fmt 
     gcc 
@@ -44,7 +55,15 @@ in
     python3 
     i3blocks-gaps
     alsa-utils 
-    playerctl 
+    playerctl
+    polybarFull 
   ];
+
+  programs.neovim = {
+    plugins = with pkgs.vimPlugins; [
+      vim-nix
+      vim-fugitive
+    ];
+  };
 }
 

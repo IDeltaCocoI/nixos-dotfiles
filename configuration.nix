@@ -52,7 +52,6 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
-    neovim
     alacritty
     btop
     xwallpaper

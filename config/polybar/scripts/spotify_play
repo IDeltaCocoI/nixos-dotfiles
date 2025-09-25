@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Script bouton Play/Pause pour i3blocks
+
+# Vérifier si Spotify est actif
+playerctl --player=spotify status &>/dev/null || exit 0
+
+# Si le clic est détecté, on bascule l'état
+if [ ! -z "$BLOCK_BUTTON" ]; then
+    playerctl --player=spotify play-pause
+    pkill -RTMIN+20 i3blocks
+fi
+
+# Affichage du logo selon l'état actuel
+STATUS=$(playerctl --player=spotify status 2>/dev/null)
+
+if [ "$STATUS" = "Playing" ]; then
+    ICON=" ⏸ "   # Musique en cours → afficher Pause
+else
+    ICON=" ⏵ "  # Musique en pause → afficher Play
+fi
+
+echo "$ICON"
+

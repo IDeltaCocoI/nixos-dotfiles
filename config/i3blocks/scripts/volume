@@ -1,15 +1,20 @@
-#!/usr/bin/env bash
-# i3blocks - volume
-# Affiche le volume actuel et l'état mute
+SINK=$(pactl get-default-sink)
 
-# Récupère le volume et le statut mute de la sortie Master
-VOL=$(amixer get Master | awk -F'[][]' '/Left:/ {print $2}')
-MUTE=$(amixer get Master | awk -F'[][]' '/Left:/ {print $4}')
+VOLUME=$(pactl get-sink-volume "$SINK" | grep -oP '\d+%' | head -n1)
+MUTE=$(pactl get-sink-mute "$SINK" | awk '{print $2}')
 
-# Affichage
-if [ "$MUTE" = "off" ]; then
-    echo " VOL MUTE "
+if [ "$MUTE" = "yes" ]; then
+    ICON="🔇"
 else
-    echo " VOL $VOL "
+    VOL_NUM=${VOLUME%\%}
+    if [ "$VOL_NUM" -eq 0 ]; then
+        ICON="🔈"
+    elif [ "$VOL_NUM" -le 50 ]; then
+        ICON="🔉"
+    else
+        ICON="🔊"
+    fi
 fi
+
+echo "$ICON $VOLUME"
 
