@@ -14,30 +14,37 @@ let
 in 
 
 { 
-  home.username = "corentin"; 
-  home.homeDirectory = "/home/corentin"; 
-  
-  programs.git.enable = true; 
-  home.stateVersion = "25.05"; 
+  home = {
+    username = "corentin"; 
+    homeDirectory = "/home/corentin"; 
+    stateVersion = "25.05"; 
+  };
+
+  programs.git = {
+    enable = true;
+    userName = "IDeltaCocoI";
+    userEmail = "corentin.louis74@gmail.com";
+  };
   
   programs.bash = { 
     enable = true; 
     shellAliases = { 
-      nr = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#corentin"; 
-      xterm = "alacritty";
+      nr = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#corentin";
     }; 
   };
 
+  home.file.".config/home-manager/home.nix".source = create_symlink "${config.home.homeDirectory}/nixos-dotfiles/home.nix";
+
   xdg.configFile = builtins.mapAttrs (name: subpath: { 
     source = create_symlink "${dotfiles}/${subpath}"; 
-    recursive = true; 
+    recursive = true;
   }) configs; 
 
   home.packages = with pkgs; [ 
     alacritty
     
     # Neovim pkgs
-    neovim 
+    neovim
     ripgrep
     fd
     nodejs

@@ -54,7 +54,7 @@
     wget
     alacritty
     btop
-    xwallpaper
+    feh
     rofi
     pcmanfm
     spotify

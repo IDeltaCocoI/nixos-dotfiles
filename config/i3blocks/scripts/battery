@@ -27,5 +27,5 @@ else
     STATUS="Unknown"
 fi
 
-echo "${CAPACITY}% (${STATUS})"
+echo " ${CAPACITY}% ${STATUS} "
 

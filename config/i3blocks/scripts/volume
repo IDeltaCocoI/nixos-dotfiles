@@ -16,5 +16,5 @@ else
     fi
 fi
 
-echo "$ICON $VOLUME"
+echo " $ICON $VOLUME "
 

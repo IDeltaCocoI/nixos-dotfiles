@@ -10,9 +10,13 @@
   };
 
   outputs = { self, nixpkgs, home-manager, ... }:
+  let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs { inherit system; };
+  in
   {
     nixosConfigurations.corentin = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+      inherit system;
       modules = [
         ./configuration.nix
         home-manager.nixosModules.home-manager
@@ -25,6 +29,11 @@
           };
         }
       ];
+    };
+
+    homeConfigurations.corentin = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs; 
+      modules = [ ./home.nix ];
     };
   };
 }

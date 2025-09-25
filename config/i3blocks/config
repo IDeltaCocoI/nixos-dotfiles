@@ -6,38 +6,32 @@ markup=none
 interval=10
 separator=false
 color=#000000
-background=#FF5555
+background=#A8E6CF
 
 [memory]
 separator=false
 interval=10
 color=#000000
-background=#FFAA00
+background=#DCEDC1
 
 [disk]
 interval=60
 separator=false
 color=#000000
-background=#555555
+background=#FFD3B6
 
 [battery]
-interval=10
+interval=30
 separator=false
 color=#000000
-background=#50FA7B
-
-[wifi]
-interval=10
-separator=false
-color=#000000
-background=#9B59B6
+background=#FFAAA5
 
 [volume]
 interval=once
 signal=10
 separator=false
 color=#000000
-background=#1ABC9C
+background=#FF8B94
 
 [spotify_prev]
 interval=1
@@ -65,7 +59,7 @@ color=#000000
 background=#1DB954
 
 [time]
-interval=1
+interval=60
 color=#000000
-background=#F1C40F
+background=#B5EAEA
 
