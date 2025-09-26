@@ -15,8 +15,8 @@ in
 
 { 
   home = {
-    username = "corentin.louis"; 
-    homeDirectory = "/home/corentin.louis"; 
+    username = "corentin"; 
+    homeDirectory = "/home/corentin"; 
     stateVersion = "25.05"; 
   };
 
