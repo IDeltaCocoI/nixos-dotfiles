@@ -15,22 +15,9 @@ in
 
 { 
   home = {
-    username = "corentin"; 
-    homeDirectory = "/home/corentin"; 
+    username = "corentin.louis"; 
+    homeDirectory = "/home/corentin.louis"; 
     stateVersion = "25.05"; 
-  };
-
-  programs.git = {
-    enable = true;
-    userName = "IDeltaCocoI";
-    userEmail = "corentin.louis74@gmail.com";
-  };
-  
-  programs.bash = { 
-    enable = true; 
-    shellAliases = { 
-      nr = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#corentin";
-    }; 
   };
 
   home.file.".config/home-manager/home.nix".source = create_symlink "${config.home.homeDirectory}/nixos-dotfiles/home.nix";
