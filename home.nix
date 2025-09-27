@@ -15,8 +15,8 @@ in
 
 { 
   home = {
-    username = "corentin"; 
-    homeDirectory = "/home/corentin"; 
+    username = "corentin.louis"; 
+    homeDirectory = "/home/corentin.louis"; 
     stateVersion = "25.05"; 
   };
 
@@ -50,7 +50,10 @@ in
     i3blocks-gaps
     alsa-utils 
     playerctl
-    polybarFull 
+    polybarFull
+
+    #Font
+    nerd-fonts.jetbrains-mono
   ];
 
   programs.neovim = {
