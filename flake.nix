@@ -31,9 +31,9 @@
       ];
     };
 
-    homeConfigurations.corentin = home-manager.lib.homeManagerConfiguration {
+    homeConfigurations."corentin.louis" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs; 
-      modules = [ ./home.nix ];
+      modules = [ ./home-epita.nix ];
     };
   };
 }

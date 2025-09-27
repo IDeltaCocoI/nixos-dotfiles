@@ -1,10 +1,9 @@
 { config, pkgs, ... }: 
 
 let 
-  dotfiles = "${config.home.homeDirectory}/nixos-dotfiles/config";
+  dotfiles = "${config.home.homeDirectory}/afs/nixos-dotfiles/config";
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
   configs = { 
-    i3 = "i3";
     nvim = "nvim";
     alacritty = "alacritty";
     rofi = "rofi";
@@ -15,12 +14,12 @@ in
 
 { 
   home = {
-    username = "corentin"; 
-    homeDirectory = "/home/corentin"; 
+    username = "corentin.louis"; 
+    homeDirectory = "/home/corentin.louis"; 
     stateVersion = "25.05"; 
   };
 
-  home.file.".config/home-manager/home.nix".source = create_symlink "${config.home.homeDirectory}/nixos-dotfiles/home.nix";
+  home.file.".config/home-manager/home.nix".source = create_symlink "${config.home.homeDirectory}/afs/nixos-dotfiles/home.nix";
 
   xdg.configFile = builtins.mapAttrs (name: subpath: { 
     source = create_symlink "${dotfiles}/${subpath}"; 
@@ -30,14 +29,16 @@ in
   home.packages = with pkgs; [ 
     alacritty
     neovim
-    lua 
+    lua
     gcc 
     rofi 
-    python3 
     i3blocks-gaps
     playerctl
     polybarFull
     picom
+
+    #Font
+    nerd-fonts.jetbrains-mono
   ];
 }
 
