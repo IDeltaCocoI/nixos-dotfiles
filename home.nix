@@ -4,7 +4,7 @@ let
   dotfiles = "${config.home.homeDirectory}/nixos-dotfiles/config";
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
   configs = { 
-    i3 = "i3";
+    #i3 = "i3";
     nvim = "nvim";
     alacritty = "alacritty";
     rofi = "rofi";
@@ -29,7 +29,7 @@ in
 
   home.packages = with pkgs; [ 
     alacritty
-    
+    i3
     # Neovim pkgs
     neovim
     ripgrep
@@ -51,6 +51,7 @@ in
     alsa-utils 
     playerctl
     polybarFull
+    picom
 
     #Font
     nerd-fonts.jetbrains-mono
