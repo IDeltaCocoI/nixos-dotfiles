@@ -9,6 +9,7 @@ let
     rofi = "rofi";
     i3blocks = "i3blocks";
     polybar = "polybar";
+    picom = "picom";
   }; 
 in 
 
@@ -19,7 +20,7 @@ in
     stateVersion = "25.05"; 
   };
 
-  home.file.".config/home-manager/home.nix".source = create_symlink "${config.home.homeDirectory}/afs/nixos-dotfiles/home.nix";
+  home.file.".config/home-manager/epita.nix".source = create_symlink "${config.home.homeDirectory}/afs/nixos-dotfiles/epita.nix";
 
   xdg.configFile = builtins.mapAttrs (name: subpath: { 
     source = create_symlink "${dotfiles}/${subpath}"; 
@@ -36,6 +37,7 @@ in
     playerctl
     polybarFull
     picom
+    spotify
 
     #Font
     nerd-fonts.jetbrains-mono

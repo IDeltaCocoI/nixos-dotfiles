@@ -22,13 +22,6 @@
 
   services.displayManager.ly.enable = true;
 
-  services.picom = {
-    enable = true;
-    backend = "glx";
-    fade = true;
-  };
-
-
   services.logind.extraConfig = ''
     IdleAction=ignore
     IdleActionSec=0

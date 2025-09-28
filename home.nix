@@ -10,6 +10,7 @@ let
     rofi = "rofi";
     i3blocks = "i3blocks";
     polybar = "polybar";
+    picom = "picom";
   }; 
 in 
 
@@ -18,6 +19,19 @@ in
     username = "corentin"; 
     homeDirectory = "/home/corentin"; 
     stateVersion = "25.05"; 
+  };
+
+  programs.bash = {
+    enable = true;
+    shellAliases = {
+      nr = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#corentin";
+    };
+  };
+
+  programs.git = {
+    enable = true;
+    userName  = "IDeltaCocoI";
+    userEmail = "corentin.louis74@gmail.com";
   };
 
   home.file.".config/home-manager/home.nix".source = create_symlink "${config.home.homeDirectory}/nixos-dotfiles/home.nix";
