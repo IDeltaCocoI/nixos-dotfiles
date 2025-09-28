@@ -26,12 +26,6 @@ separator=false
 color=#000000
 background=#FFAAA5
 
-[wifi]
-interval=10
-separator=false
-color=#000000
-background=#FFC8A9
-
 [volume]
 interval=once
 signal=10

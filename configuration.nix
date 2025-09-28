@@ -10,6 +10,7 @@
 
   networking.hostName = "Nixos";
   networking.networkmanager.enable = true;
+  programs.nm-applet.enable = true;
 
   time.timeZone = "Europe/Paris";
 
