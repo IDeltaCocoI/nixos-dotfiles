@@ -26,5 +26,5 @@ else
     usage_pct="0.00"
 fi
 
-echo " CPU ${usage_pct}% "
+echo "    ${usage_pct}% "
 

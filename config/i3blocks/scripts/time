@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-TIME=$(date '+%d-%m-%Y %H:%M')
-DISPLAY=" $TIME "
+CALENDAR=$(date '+%d-%m-%Y')
+TIME=$(date '+%H:%M')
 
-echo "$DISPLAY"
+echo "    $CALENDAR       $TIME "

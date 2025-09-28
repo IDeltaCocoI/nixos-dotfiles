@@ -15,5 +15,5 @@ used_gb=$(awk -v u="$used" 'BEGIN {printf "%.2f", u/1024/1024}')
 # Pourcentage utilisé
 pct=$(awk -v u="$used" -v t="$total" 'BEGIN {printf "%.2f", (u/t)*100}')
 
-echo " DISK ${pct}% (${used_gb}G / ${total_gb}G) "
+echo "    ${pct}% (${used_gb}G / ${total_gb}G) "
 

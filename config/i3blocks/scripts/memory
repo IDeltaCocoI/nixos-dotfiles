@@ -16,5 +16,5 @@ mem_total_gb=$(awk -v m="$mem_total" 'BEGIN {printf "%.2f", m/1024/1024}')
 # Pourcentage avec 2 décimales
 mem_pct=$(awk -v u="$mem_used" -v t="$mem_total" 'BEGIN {printf "%.2f", (u/t)*100}')
 
-echo " MEM ${mem_pct}% (${mem_used_gb}G / ${mem_total_gb}G) "
+echo "    ${mem_pct}% (${mem_used_gb}G / ${mem_total_gb}G) "
 
