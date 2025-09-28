@@ -38,6 +38,7 @@ in
     polybarFull
     picom
     spotify
+    neofetch
 
     #Font
     nerd-fonts.jetbrains-mono

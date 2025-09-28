@@ -22,15 +22,6 @@
 
   services.displayManager.ly.enable = true;
 
-  services.logind.extraConfig = ''
-    IdleAction=ignore
-    IdleActionSec=0
-    HandleLidSwitch=ignore
-    HandleLidSwitchDocked=ignore
-    HandleSuspendKey=ignore
-    HandleHibernateKey=ignore
-  '';
-
   users.users.corentin = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];

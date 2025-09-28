@@ -1,31 +1,42 @@
 #!/usr/bin/env bash
 # i3blocks - battery
-# Affiche l'état de la batterie en % et charging/discharging
+# Affiche l'état de la batterie en % avec icônes Nerd Font
 # Ne renvoie rien si pas de batterie
 
-# Détecter le chemin de la batterie (ACPI)
+# Détecter le chemin de la batterie
 BAT_PATH=$(ls /sys/class/power_supply/ | grep -E '^BAT')
-
-# Si aucune batterie, ne rien afficher
-if [ -z "$BAT_PATH" ]; then
-    exit 0
-fi
+[ -z "$BAT_PATH" ] && exit 0
 
 BAT_DIR="/sys/class/power_supply/$BAT_PATH"
 
-# Lire le niveau de charge en %
-if [ -f "$BAT_DIR/capacity" ]; then
-    CAPACITY=$(cat "$BAT_DIR/capacity")
+# Lire le niveau de charge
+CAPACITY="N/A"
+[ -f "$BAT_DIR/capacity" ] && CAPACITY=$(<"$BAT_DIR/capacity")
+
+# Lire l'état (Charging / Discharging / Full)
+STATUS="Unknown"
+[ -f "$BAT_DIR/status" ] && STATUS=$(<"$BAT_DIR/status")
+
+# Choisir l'icône selon l'état et le niveau
+if [ "$STATUS" = "Charging" ]; then
+    ICON=""  # Éclair pour charge
+elif [ "$STATUS" = "Full" ]; then
+    ICON=" "  # Batterie pleine
 else
-    CAPACITY="N/A"
+    # Discharging → icône selon % restant
+    if [ "$CAPACITY" -ge 75 ]; then
+        ICON=" "
+    elif [ "$CAPACITY" -ge 50 ]; then
+        ICON=" "
+    elif [ "$CAPACITY" -ge 25 ]; then
+        ICON=" "
+    elif [ "$CAPACITY" -ge 10 ]; then
+        ICON=" "
+    else
+        ICON=" "
+    fi
 fi
 
-# Lire l'état (Charging/Discharging/Full)
-if [ -f "$BAT_DIR/status" ]; then
-    STATUS=$(cat "$BAT_DIR/status")
-else
-    STATUS="Unknown"
-fi
-
-echo " ${CAPACITY}% ${STATUS} "
+# Affichage final
+echo " $ICON  ${CAPACITY}% "
 

@@ -31,7 +31,7 @@ exec --no-startup-id feh --bg-scale ~/nixos-dotfiles/wallpapers/rennala_arena.jp
 
 # Change touchpad scrolling
 exec --no-startup-id xinput set-prop "Synaptics TM2714-001" "libinput Natural Scrolling Enabled" 1
-exec --no-startup-id xinput set-prop "Synaptics TM2714-001" "libinput Accel Speed" 0.5
+exec --no-startup-id xinput set-prop "Synaptics TM2714-001" "libinput Accel Speed" 0.6
 
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
@@ -219,5 +219,6 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
   status_command i3blocks
+  tray_output primary
 }
 

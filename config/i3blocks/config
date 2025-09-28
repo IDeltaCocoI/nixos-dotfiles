@@ -3,7 +3,7 @@ separator_block_width=0
 markup=none
 
 [cpu]
-interval=10
+interval=1
 separator=false
 color=#000000
 background=#A8E6CF
@@ -25,6 +25,12 @@ interval=30
 separator=false
 color=#000000
 background=#FFAAA5
+
+[wifi]
+interval=10
+separator=false
+color=#000000
+background=#FFC8A9
 
 [volume]
 interval=once
