@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 cp -r ~/nixos-dotfiles/config/i3 ~/.config
 
