@@ -1,7 +1,7 @@
 { config, pkgs, ... }: 
 
 let 
-  dotfiles = "${config.home.homeDirectory}/afs/nixos-dotfiles/config";
+  dotfiles = "${config.home.homeDirectory}/nixos-dotfiles/config";
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
   configs = { 
     nvim = "nvim";
@@ -20,14 +20,14 @@ in
     stateVersion = "25.05"; 
   };
 
-  home.file.".config/home-manager/epita.nix".source = create_symlink "${config.home.homeDirectory}/afs/nixos-dotfiles/epita.nix";
+  home.file.".config/home-manager/epita.nix".source = create_symlink "${config.home.homeDirectory}/nixos-dotfiles/epita.nix";
 
-  xdg.configFile = builtins.mapAttrs (name: subpath: { 
-    source = create_symlink "${dotfiles}/${subpath}"; 
+  xdg.configFile = builtins.mapAttrs (name: subpath: {
+    source = create_symlink "${dotfiles}/${subpath}";
     recursive = true;
-  }) configs; 
+  }) configs;
 
-  home.packages = with pkgs; [ 
+  home.packages = with pkgs; [
     alacritty
     neovim
     lua
@@ -37,7 +37,6 @@ in
     playerctl
     polybarFull
     picom
-    spotify
     neofetch
 
     #Font
