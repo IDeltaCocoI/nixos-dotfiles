@@ -39,6 +39,7 @@
     alacritty
     btop
     feh
+    man
     rofi
     pcmanfm
     spotify
@@ -46,6 +47,9 @@
     discord
     git
     neofetch 
+    clang-tools
+    gnumake
+    gdb
   ];
 
   fonts.packages = with pkgs; [

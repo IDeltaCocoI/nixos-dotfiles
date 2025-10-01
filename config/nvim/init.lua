@@ -1,4 +1,7 @@
--- ==============================
+--- init.lua
+require("colors").setup()
+
+--==============================
 -- Basic Options
 -- ==============================
 vim.o.number = true           -- show line numbers
