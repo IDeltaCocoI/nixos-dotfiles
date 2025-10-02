@@ -38,6 +38,7 @@ in
     polybarFull
     picom
     neofetch
+    pre-commit
 
     #Font
     nerd-fonts.jetbrains-mono

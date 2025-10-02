@@ -52,6 +52,7 @@ in
     playerctl
     polybarFull
     picom
+    pre-commit
   ];
 }
 
