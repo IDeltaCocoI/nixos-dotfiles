@@ -1,19 +1,11 @@
-vim.o.number = true
+-- lua/settings.lua
+-- ==============================
+-- Basic Options
+-- ==============================
+vim.o.number = true           -- show line numbers
+vim.o.relativenumber = true   -- show relative line numbers
+vim.o.expandtab = true        -- convert tabs to spaces
+vim.o.shiftwidth = 4          -- spaces per indent
+vim.o.tabstop = 4             -- spaces per tab
+vim.o.smartindent = true      -- smart auto-indentation
 
-vim.o.cursorline = true
-
-vim.cmd('filetype on')
-
-vim.cmd('syntax on')
-vim.opt.termguicolors = true
-vim.diagnostic.config({ virtual_text = false, virtual_lines = { current_line = true }, })
-vim.cmd.colorscheme("rose-pine-dawn")
-
-vim.o.autoindent = true
-
-
-vim.o.tabstop = 2
-vim.o.shiftwidth = 2
-vim.o.expandtab = true
-
-vim.o.softtabstop = 2

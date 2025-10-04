@@ -47,7 +47,9 @@
     discord
     git
     neofetch 
+    clang
     clang-tools
+    llvm
     gnumake
     gdb
   ];

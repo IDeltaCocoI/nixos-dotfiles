@@ -10,6 +10,7 @@ let
     i3blocks = "i3blocks";
     polybar = "polybar";
     picom = "picom";
+    neofetch = "neofetch";
   }; 
 in 
 
@@ -38,6 +39,9 @@ in
     polybarFull
     picom
     neofetch
+    clang
+    clang-tools
+    llvm
     pre-commit
 
     #Font

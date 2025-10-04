@@ -1,22 +1,22 @@
--- ~/.config/nvim/lua/color.lua
+-- color.lua
 local M = {}
 
 M.setup = function()
-    -- Palette futuriste douce
+    -- Palette spatiale douce
     local colors = {
-        bg        = "#1a1b2e", -- fond sombre
-        fg        = "#e0e0f0", -- texte principal
-        blue      = "#7aa2f7",
-        purple    = "#c678dd",
-        cyan      = "#56b6c2",
-        magenta   = "#d16dff",
-        yellow    = "#e5c07b",
-        orange    = "#ff9e64",
-        green     = "#98c379",
-        red       = "#f7768e",
-        gray      = "#565f89",
-        cursorbg  = "#2c2f4a",
-        selection = "#2a2d3e",
+        bg        = "#1c1f2b", -- fond sombre mais pas trop
+        fg        = "#e5e5e5", -- texte principal clair
+        blue      = "#82aaff",
+        purple    = "#c792ea",
+        cyan      = "#89ddff",
+        magenta   = "#f07178",
+        yellow    = "#ffcb6b",
+        orange    = "#f78c6c",
+        green     = "#c3e88d",
+        red       = "#f07178",
+        gray      = "#7f849c",
+        cursorbg  = "#2e313c",
+        selection = "#3a3f58",
     }
 
     -- Fond et texte
@@ -27,7 +27,7 @@ M.setup = function()
 
     -- Mots-clés et structures conditionnelles
     vim.cmd("highlight Keyword guifg=" .. colors.purple .. " gui=bold")
-    vim.cmd("highlight Conditional guifg=" .. colors.yellow .. " gui=bold") -- if / else / elseif
+    vim.cmd("highlight Conditional guifg=" .. colors.yellow .. " gui=bold")
 
     -- Fonctions
     vim.cmd("highlight Function guifg=" .. colors.blue .. " gui=bold")
