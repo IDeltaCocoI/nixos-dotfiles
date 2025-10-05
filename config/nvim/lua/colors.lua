@@ -1,22 +1,20 @@
--- color.lua
 local M = {}
 
 M.setup = function()
-    -- Palette spatiale douce
     local colors = {
-        bg        = "#1c1f2b", -- fond sombre mais pas trop
-        fg        = "#e5e5e5", -- texte principal clair
-        blue      = "#82aaff",
-        purple    = "#c792ea",
-        cyan      = "#89ddff",
-        magenta   = "#f07178",
-        yellow    = "#ffcb6b",
-        orange    = "#f78c6c",
-        green     = "#c3e88d",
-        red       = "#f07178",
-        gray      = "#7f849c",
-        cursorbg  = "#2e313c",
-        selection = "#3a3f58",
+        bg        = "#282c34", -- Fond sombre
+        fg        = "#abb2bf", -- Texte principal
+        blue      = "#61afef", -- Fonctions
+        purple    = "#c678dd", -- Mots-clés
+        cyan      = "#56b6c2", -- Identifiants
+        magenta   = "#e06c75", -- Opérateurs
+        yellow    = "#e5c07b", -- Types et conditionnels
+        orange    = "#d19a66", -- Nombres
+        green     = "#98c379", -- Chaînes de caractères
+        red       = "#be5046", -- Erreurs
+        gray      = "#5c6370", -- Commentaires, numéros de ligne
+        cursorbg  = "#3e4452", -- Ligne active
+        selection = "#3e4452", -- Sélection visuelle
     }
 
     -- Fond et texte
@@ -35,7 +33,7 @@ M.setup = function()
     -- Variables et identifiants
     vim.cmd("highlight Identifier guifg=" .. colors.cyan)
 
-    -- Strings
+    -- Chaînes de caractères
     vim.cmd("highlight String guifg=" .. colors.green)
 
     -- Nombres
@@ -57,7 +55,7 @@ M.setup = function()
 
     -- Pmenu (autocomplete)
     vim.cmd("highlight Pmenu guibg=" .. colors.cursorbg .. " guifg=" .. colors.fg)
-    vim.cmd("highlight PmenuSel guibg=" .. colors.purple .. " guifg=#ffffff")
+    vim.cmd("highlight PmenuSel guibg=" .. colors.blue .. " guifg=#ffffff")
 
     -- Diagnostics (LSP)
     vim.cmd("highlight DiagnosticError guifg=" .. colors.red)
