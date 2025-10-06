@@ -39,9 +39,6 @@ in
     polybarFull
     picom
     neofetch
-    clang
-    clang-tools
-    llvm
     pre-commit
 
     #Font
