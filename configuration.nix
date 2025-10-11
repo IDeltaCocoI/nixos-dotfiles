@@ -68,6 +68,7 @@
         clang-tools
         llvm
         gnumake
+        gcovr
         gdb
     ];
 
