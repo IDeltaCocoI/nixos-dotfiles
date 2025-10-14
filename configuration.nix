@@ -1,16 +1,12 @@
 { config, lib, pkgs, ... }:
 {
-    imports =
-        [
-        ./hardware-configuration.nix
-        ];
+    imports = [ ./hardware-configuration.nix ];
 
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
 
     networking.hostName = "Nixos";
     networking.networkmanager.enable = true;
-    programs.nm-applet.enable = true;
 
     time.timeZone = "Europe/Paris";
 
@@ -63,7 +59,7 @@
         discord
         git
         criterion
-        neofetch 
+        fastfetch
         clang
         clang-tools
         llvm

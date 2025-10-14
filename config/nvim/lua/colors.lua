@@ -18,7 +18,7 @@ M.setup = function()
     }
 
     -- Fond et texte
-    vim.cmd("highlight Normal guibg=" .. colors.bg .. " guifg=" .. colors.fg)
+    vim.cmd("highlight Normal guibg=none guifg=" .. colors.fg)
 
     -- Commentaires
     vim.cmd("highlight Comment guifg=" .. colors.gray .. " gui=italic")

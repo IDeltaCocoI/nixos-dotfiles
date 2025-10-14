@@ -29,8 +29,8 @@ gaps outer 10
 # Scaling
 exec --no-startup-id ~/.config/i3/scaling.sh
 
-# Background
-exec --no-startup-id feh --bg-scale ~/nixos-dotfiles/wallpapers/rennala_arena.jpg
+# Wallpaper
+exec --no-startup-id ~/nixos-dotfiles/wallpapers/wallpapers.sh
 
 # Change touchpad scrolling
 exec --no-startup-id xinput set-prop "Synaptics TM2714-001" "libinput Natural Scrolling Enabled" 1
