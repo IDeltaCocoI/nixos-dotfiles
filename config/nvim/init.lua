@@ -6,8 +6,8 @@ vim.notify = function(msg, log_level, opts)
   end
 end
 
--- init.lua
-require("colors").setup()
+-- Thème / couleurs
+require("colorscheme").setup()
 
 -- Core settings
 require("settings")
@@ -18,6 +18,21 @@ require("keymaps")
 -- Plugins
 require("plugins")
 
+-- Dashboard
+require("dashboard_config")
+
+-- Flash plugin
+require("flash_config")
+
+-- Lualine
+require("lualine")
+
+-- Neo-tree
+require("neo-tree_config")
+
+-- nvim-surround
+require("nvim-surround")
+
 -- Treesitter
 require("treesitter")
 
@@ -25,5 +40,8 @@ require("treesitter")
 require("lsp")
 
 -- Autocompletion
-require("cmp_config")
+require("completion")
+
+-- Telescope
+require("telescope")
 

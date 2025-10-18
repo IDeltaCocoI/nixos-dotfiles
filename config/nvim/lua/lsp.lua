@@ -1,14 +1,6 @@
--- lua/lsp.lua
+-- lsp
 local lspconfig = require("lspconfig")
 
--- Clangd pour C/C++
-lspconfig.clangd.setup({
-  cmd = { "clangd" },
-  filetypes = { "c", "cpp", "objc", "objcpp" },
-  root_dir = lspconfig.util.root_pattern(".git", "compile_commands.json", "Makefile"),
-})
-
--- Lua LSP pour config Neovim
 lspconfig.lua_ls.setup({
   settings = {
     Lua = {
@@ -20,6 +12,32 @@ lspconfig.lua_ls.setup({
       },
       telemetry = { enable = false },
     },
+  },
+})
+
+-- C/C++
+lspconfig.clangd.setup({})
+
+-- Python
+lspconfig.pylsp.setup({})
+
+-- Bash
+lspconfig.bashls.setup({})
+
+-- Rust
+lspconfig.rust_analyzer.setup({})
+
+-- Nix
+lspconfig.nixd.setup({})
+
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+  float = {
+    border = "rounded",
   },
 })
 
