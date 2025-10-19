@@ -16,7 +16,7 @@ configs = {
 in 
 
 { 
-   home = {
+    home = {
         username = "corentin"; 
         homeDirectory = "/home/corentin"; 
         stateVersion = "25.05"; 
