@@ -30,6 +30,8 @@ in
 
     home.packages = with pkgs; [
         alacritty
+        btop
+        brightnessctl
         neovim
         lua
         gcc 
@@ -38,7 +40,7 @@ in
         playerctl
         polybarFull
         picom
-        neofetch
+        fastfetch
         pre-commit
 
         #Font
