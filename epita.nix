@@ -10,7 +10,7 @@ configs = {
     i3blocks = "i3blocks";
     polybar = "polybar";
     picom = "picom";
-    fastfetch = "fastfetch"
+    fastfetch = "fastfetch";
 };
 in 
 
