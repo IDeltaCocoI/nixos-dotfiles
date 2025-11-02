@@ -35,5 +35,5 @@ DURATION_S=$(awk -v d="$DURATION_US" 'BEGIN {printf "%.2f", d/1000000}')
 # }')
 
 # Affichage
-echo "    $ARTIST - $TITLE $PROGRESS "
+echo "$ARTIST - $TITLE $PROGRESS"
 

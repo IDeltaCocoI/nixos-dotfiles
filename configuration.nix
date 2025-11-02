@@ -71,8 +71,10 @@
         clang-tools
         llvm
         gnumake
+        gcc
         gcovr
         gdb
+        networkmanagerapplet
     ];
 
     fonts.packages = with pkgs; [
