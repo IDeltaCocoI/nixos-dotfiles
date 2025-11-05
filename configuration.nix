@@ -68,6 +68,7 @@
         ripgrep
         fd
         nodejs
+        valgrind
         clang-tools
         llvm
         gnumake
