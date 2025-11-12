@@ -37,7 +37,6 @@ in
         gcc 
         rofi 
         i3blocks-gaps
-        spotify
         playerctl
         polybarFull
         picom
