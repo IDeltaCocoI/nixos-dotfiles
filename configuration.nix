@@ -23,7 +23,7 @@
 
     users.users.corentin = {
         isNormalUser = true;
-        extraGroups = [ "wheel" ];
+        extraGroups = [ "wheel" "docker" ];
         packages = with pkgs; [
             tree
         ];
@@ -41,6 +41,7 @@
         lua-language-server
         btop
         brightnessctl
+        vencord
         feh
         man
         glibc.dev
@@ -86,6 +87,17 @@
     boot.extraModulePackages = [
         pkgs.linuxPackages.rtl8812au
     ];
+
+    virtualisation.docker.enable = true;
+
+    security.wrappers.ubridge = {
+        source = "${pkgs.ubridge}/bin/ubridge";
+        capabilities = "cap_net_admin,cap_net_raw+ep";
+        owner = "root";
+        group = "root";
+        permissions = "0755";
+    };
+
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
     system.stateVersion = "25.05";
