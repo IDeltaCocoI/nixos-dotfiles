@@ -38,6 +38,7 @@
     environment.systemPackages = with pkgs; [
         wget
         alacritty
+        protonvpn-gui
         lua-language-server
         btop
         brightnessctl
@@ -82,6 +83,8 @@
     fonts.packages = with pkgs; [
         nerd-fonts.jetbrains-mono
     ];
+
+    networking.firewall.allowedTCPPorts = [ ];
 
     hardware.enableAllFirmware = true;
     boot.extraModulePackages = [
