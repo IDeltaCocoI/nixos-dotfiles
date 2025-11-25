@@ -45,3 +45,5 @@ require("completion")
 -- Telescope
 require("telescope")
 
+-- Count Line for C language
+require("countline")
