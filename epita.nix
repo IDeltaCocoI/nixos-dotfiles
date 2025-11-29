@@ -4,6 +4,7 @@ let
 dotfiles = "${config.home.homeDirectory}/nixos-dotfiles/config";
 create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
 configs = { 
+    # Folders
     nvim = "nvim";
     alacritty = "alacritty";
     rofi = "rofi";
@@ -11,6 +12,9 @@ configs = {
     polybar = "polybar";
     picom = "picom";
     fastfetch = "fastfetch";
+
+    # Files
+    "starship.toml" = "starship.toml";
 };
 in 
 
