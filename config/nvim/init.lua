@@ -1,9 +1,15 @@
+local old_notify = vim.notify
+
 vim.notify = function(msg, log_level, opts)
-  if msg:match("The `require%(\'lspconfig\'%)`") then
-    return
-  else
-    vim.api.nvim_notify(msg, log_level, opts)
-  end
+    if type(msg) == "string" and msg:match("The `require%(\'lspconfig\'%)`") then
+        return
+    end
+
+    if type(opts) ~= "table" then
+        opts = {}
+    end
+
+    old_notify(msg, log_level, opts)
 end
 
 -- Thème / couleurs

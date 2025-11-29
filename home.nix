@@ -68,6 +68,8 @@ in
         dynamips
         ubridge
         inetutils
+        jdt-language-server
+        sqls
     ];
 }
 

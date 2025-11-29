@@ -1,3 +1,8 @@
 -- keymaps
--- neo-tree
-vim.keymap.set("n", "<C-n>", "<cmd>Neotree filesystem toggle right<CR>", { noremap = true, silent = true })
+
+-- Neo-tree
+vim.keymap.set("n", "<Tab>", function()
+  vim.cmd("Neotree toggle left")
+end, { silent = true, noremap = true })
+
+-- 

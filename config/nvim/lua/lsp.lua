@@ -21,6 +21,12 @@ lspconfig.clangd.setup({})
 -- Python
 lspconfig.pylsp.setup({})
 
+-- Java
+lspconfig.jdtls.setup({})
+
+-- SQL
+lspconfig.sqls.setup({})
+
 -- Bash
 lspconfig.bashls.setup({})
 

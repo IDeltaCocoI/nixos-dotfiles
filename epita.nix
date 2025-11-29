@@ -51,6 +51,8 @@ in
         picom
         fastfetch
         pre-commit
+        jdt-language-server
+        sqls
 
         #Font
         nerd-fonts.jetbrains-mono
