@@ -52,7 +52,9 @@ in
         fastfetch
         pre-commit
         jdt-language-server
+        bash-language-server
         sqls
+        nixd
 
         #Font
         nerd-fonts.jetbrains-mono

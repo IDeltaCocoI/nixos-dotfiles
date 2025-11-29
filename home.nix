@@ -69,7 +69,9 @@ in
         ubridge
         inetutils
         jdt-language-server
+        bash-language-server
         sqls
+        nixd
     ];
 }
 
