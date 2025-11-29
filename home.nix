@@ -12,6 +12,7 @@ configs = {
     polybar = "polybar";
     picom = "picom";
     fastfetch = "fastfetch";
+    "starship.toml" = "starship.toml";
 }; 
 in 
 
@@ -35,6 +36,10 @@ in
         userEmail = "corentin.louis74@gmail.com";
     };
 
+    programs.starship = {
+        enable = true;
+    };
+
     home.file.".config/home-manager/home.nix".source = create_symlink "${config.home.homeDirectory}/nixos-dotfiles/home.nix";
 
     xdg.configFile = builtins.mapAttrs (name: subpath: { 
@@ -44,6 +49,7 @@ in
 
     home.packages = with pkgs; [ 
         alacritty
+        starship
         neovim
         lua 
         gcc 

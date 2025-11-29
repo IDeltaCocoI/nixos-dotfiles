@@ -21,6 +21,10 @@ in
         stateVersion = "25.05"; 
     };
 
+    programs.starship = {
+        enable = true;
+    };
+
     home.file.".config/home-manager/epita.nix".source = create_symlink "${config.home.homeDirectory}/nixos-dotfiles/epita.nix";
 
     xdg.configFile = builtins.mapAttrs (name: subpath: {
@@ -30,6 +34,7 @@ in
 
     home.packages = with pkgs; [
         alacritty
+        starship
         btop
         brightnessctl
         neovim
