@@ -58,6 +58,7 @@ in
         gns3-server
         dynamips
         ubridge
+        inetutils
     ];
 }
 
