@@ -46,6 +46,7 @@ in
         gcc 
         rofi 
         i3blocks-gaps
+        pulseaudio
         playerctl
         polybarFull
         picom
