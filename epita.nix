@@ -36,6 +36,7 @@ in
             recursive = true;
             }) configs;
 
+    nixpkgs.config.allowUnfree = true;
     home.packages = with pkgs; [
         alacritty
         starship
@@ -56,6 +57,7 @@ in
         bash-language-server
         sqls
         nixd
+        spotify
 
         #Font
         nerd-fonts.jetbrains-mono
