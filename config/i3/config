@@ -75,7 +75,7 @@ tiling_drag modifier titlebar
 
 # My keybing
 # lock screen with i3lock
-bindsym $mod+Shift+i exec --no-startup-id i3lock
+bindsym $mod+Shift+i exec --no-startup-id ~/.config/i3/i3lock.sh
 # start firefox
 bindsym $mod+Shift+b exec --no-startup-id firefox
 # start file manager
