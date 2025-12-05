@@ -1,6 +1,6 @@
 #!/bin/sh
 
-IMG="hollow_knight.png"
+IMG="arcane.jpeg"
 SETTER="feh --bg-scale"
 DIR="$HOME/nixos-dotfiles/wallpapers/"
 CACHE="$HOME/.cache/current_wallpaper"
