@@ -31,6 +31,10 @@ in
         shellAliases = {
             nr = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#corentin";
         };
+        bashrcExtra = ''
+            export PGDATA="$HOME/postgres_data"
+            export PGHOST="/tmp"
+        '';
     };
 
     programs.git = {
@@ -72,6 +76,7 @@ in
         bash-language-server
         sqls
         nixd
+        steam
     ];
 }
 

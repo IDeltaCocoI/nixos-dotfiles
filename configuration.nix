@@ -4,6 +4,12 @@
         ./hardware-configuration.nix 
     ];
 
+    programs.steam = {
+        enable = true;
+        remotePlay.openFirewall = true;
+        dedicatedServer.openFirewall = true;
+    };
+
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
 
@@ -12,11 +18,14 @@
 
     time.timeZone = "Europe/Paris";
 
+    hardware.bluetooth.enable = true;
+
     services.xserver = {
         enable = true;
         autoRepeatDelay = 200;
         autoRepeatInterval = 35;
         windowManager.i3.enable = true;
+        videoDrivers = [ "amdgpu" ];
     };
 
     services.displayManager.ly.enable = true;
@@ -101,6 +110,20 @@
         permissions = "0755";
     };
 
+    hardware.graphics = {
+        enable = true;
+
+        extraPackages = with pkgs; [
+            mesa
+            vulkan-loader
+            vulkan-validation-layers
+        ];
+
+        extraPackages32 = with pkgs.pkgsi686Linux; [
+            mesa
+            vulkan-loader
+        ];
+    };
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
     system.stateVersion = "25.05";
