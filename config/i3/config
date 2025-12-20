@@ -33,7 +33,9 @@ exec --no-startup-id ~/.config/i3/scaling.sh
 
 # Wallpaper
 exec --no-startup-id ~/nixos-dotfiles/wallpapers/wallpapers.sh
-bindsym $mod+o exec --no-startup-id ~/nixos-dotfiles/wallpapers/wallpapers.sh
+
+# Rotation
+bindsym $mod+o exec --no-startup-id ~/nixos-dotfiles/config/i3/rotation.sh
 
 # Change touchpad scrolling
 exec --no-startup-id xinput set-prop "Synaptics TM2714-001" "libinput Natural Scrolling Enabled" 1
