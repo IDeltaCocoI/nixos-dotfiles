@@ -54,7 +54,6 @@
         vencord
         feh
         man
-        glibc.dev
         man-pages
         bash
         coreutils
@@ -77,8 +76,19 @@
         ripgrep
         fd
         nodejs
-        llvm
         networkmanagerapplet
+
+        #C 
+        clang 
+        clang-tools 
+        gcc 
+        glibc.dev 
+        llvm 
+        gnumake 
+        cmake 
+        pkg-config
+        gdb 
+        valgrind
     ];
 
     fonts.packages = with pkgs; [
