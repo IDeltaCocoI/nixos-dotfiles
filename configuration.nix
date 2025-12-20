@@ -73,19 +73,11 @@
         pulseaudio
         discord
         git
-        criterion
         fastfetch
-        clang
         ripgrep
         fd
         nodejs
-        valgrind
-        clang-tools
         llvm
-        gnumake
-        gcc
-        gcovr
-        gdb
         networkmanagerapplet
     ];
 

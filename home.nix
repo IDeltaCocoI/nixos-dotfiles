@@ -67,8 +67,6 @@ in
         polybarFull
         picom
         pre-commit
-        gns3-gui
-        gns3-server
         dynamips
         ubridge
         inetutils
