@@ -25,7 +25,7 @@
         autoRepeatDelay = 200;
         autoRepeatInterval = 35;
         windowManager.i3.enable = true;
-        videoDrivers = [ "amdgpu" ];
+#        videoDrivers = [ "amdgpu" ];
     };
 
     services.displayManager.ly.enable = true;
