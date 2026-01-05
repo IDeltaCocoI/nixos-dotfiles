@@ -78,7 +78,7 @@
         nodejs
         networkmanagerapplet
 
-        #C 
+        # C 
         clang 
         clang-tools 
         gcc 
@@ -89,6 +89,10 @@
         pkg-config
         gdb 
         valgrind
+
+        # Swift
+        swift
+        sourcekit-lsp
     ];
 
     fonts.packages = with pkgs; [

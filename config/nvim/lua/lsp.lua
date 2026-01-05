@@ -36,6 +36,9 @@ lspconfig.rust_analyzer.setup({})
 -- Nix
 lspconfig.nixd.setup({})
 
+-- Swift
+lspconfig.sourcekit.setup({})
+
 vim.diagnostic.config({
   virtual_text = true,
   signs = true,

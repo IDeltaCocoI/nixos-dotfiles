@@ -69,7 +69,7 @@ require("lazy").setup({
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-tree/nvim-web-devicons",
-            "MunifTanjim/nui.nvim",      -- ⭐ AJOUT OBLIGATOIRE
+            "MunifTanjim/nui.nvim",
         },
     },
 
@@ -82,6 +82,12 @@ require("lazy").setup({
     {
         "kylechui/nvim-surround",
         version = "*",
+    },
+
+    -- Auto pairs
+    {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
     },
 })
 

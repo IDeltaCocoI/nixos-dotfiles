@@ -53,3 +53,6 @@ require("telescope")
 
 -- Count Line for C language
 require("countline")
+
+-- Autopairs
+-- require("autopairs")
