@@ -55,4 +55,4 @@ require("telescope")
 require("countline")
 
 -- Autopairs
--- require("autopairs")
+require("autopairs")
