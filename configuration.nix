@@ -77,6 +77,7 @@
         fd
         nodejs
         networkmanagerapplet
+        xclicker
 
         # C 
         clang 
