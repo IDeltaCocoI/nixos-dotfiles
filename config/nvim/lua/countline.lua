@@ -1,21 +1,20 @@
+-- Countline
+
 local M = {}
 
 local ts = vim.treesitter
 local ns = vim.api.nvim_create_namespace("c_func_lines")
 
 local threshold_path = vim.fn.stdpath("state") .. "/c_func_line_threshold.txt"
-local threshold_cache ---@type number|nil
+local threshold_cache
 
 local function read_threshold_file()
   local f = io.open(threshold_path, "r")
   if not f then return nil end
   local content = f:read("*a") or ""
   f:close()
-
   local n = tonumber(content:match("%-?%d+"))
-  if n and n >= 0 then
-    return n
-  end
+  if n and n >= 0 then return n end
   return nil
 end
 
@@ -24,7 +23,6 @@ local function write_threshold_file(n)
   if vim.fn.isdirectory(dir) == 0 then
     vim.fn.mkdir(dir, "p")
   end
-
   local f, err = io.open(threshold_path, "w")
   if not f then
     vim.notify("countline: impossible d'écrire " .. threshold_path .. " (" .. tostring(err) .. ")", vim.log.levels.WARN)
@@ -56,7 +54,6 @@ local function ensure_threshold()
       vim.g.c_func_line_threshold = threshold_cache
     end
   end
-
   return threshold_cache
 end
 
@@ -71,18 +68,24 @@ local function is_ignorable(line)
   return false
 end
 
+local function find_node_by_type(node, target)
+  if node:type() == target then
+    return node
+  end
+  for child in node:iter_children() do
+    local found = find_node_by_type(child, target)
+    if found then return found end
+  end
+end
+
 local function count_function_lines(bufnr, func_node)
   local start_row, _, end_row, _ = func_node:range()
-
   local declarator_end_row = start_row
-  for child in func_node:iter_children() do
-    if child:type() == "function_declarator" then
-      local _, _, r, _ = child:range()
-      declarator_end_row = r
-      break
-    end
+  local decl = find_node_by_type(func_node, "function_declarator")
+  if decl then
+    local _, _, r, _ = decl:range()
+    declarator_end_row = r
   end
-
   local count = 0
   for row = declarator_end_row + 1, end_row do
     local line = vim.api.nvim_buf_get_lines(bufnr, row, row + 1, false)[1] or ""
@@ -90,23 +93,19 @@ local function count_function_lines(bufnr, func_node)
       count = count + 1
     end
   end
-
   return count, start_row
 end
 
 function M.count()
   local bufnr = vim.api.nvim_get_current_buf()
-
   local ext = vim.fn.expand("%:e")
-  if ext ~= "c" and ext ~= "h" then
-    return
-  end
+  if ext ~= "c" and ext ~= "h" then return end
 
   local ok, parser = pcall(ts.get_parser, bufnr, "c")
   if not ok then
     if not vim.g._countline_warned_no_c_parser then
       vim.g._countline_warned_no_c_parser = true
-      vim.notify("countline: parser Tree-sitter 'c' introuvable. Installe nvim-treesitter + parser C.", vim.log.levels.WARN)
+      vim.notify("countline: parser Tree-sitter 'c' introuvable", vim.log.levels.WARN)
     end
     return
   end
@@ -117,9 +116,7 @@ function M.count()
   vim.api.nvim_buf_clear_namespace(bufnr, ns, 0, -1)
 
   local query = ts.query.parse("c", [[
-    (function_definition
-      declarator: (function_declarator)
-    ) @func
+    (function_definition) @func
   ]])
 
   local threshold = ensure_threshold()
@@ -127,7 +124,6 @@ function M.count()
   for _, node in query:iter_captures(root, bufnr, 0, -1) do
     local count, start_row = count_function_lines(bufnr, node)
     local hl = (count > threshold) and "Error" or "Comment"
-
     vim.api.nvim_buf_set_extmark(bufnr, ns, start_row, 0, {
       virt_text = { { "-- " .. count .. " lines", hl } },
       virt_text_pos = "eol",
@@ -151,7 +147,6 @@ vim.api.nvim_create_user_command("SetFuncLineThreshold", function(opts)
     print("Usage: :SetFuncLineThreshold <number>")
     return
   end
-
   set_threshold(n, true)
   print(("Function line threshold set to %d (saved: %s)"):format(n, threshold_path))
   M.count()
