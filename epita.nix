@@ -58,6 +58,9 @@ in
         sqls
         nixd
         spotify
+        graphviz
+        bison
+        python313Packages.termcolor
 
         #Font
         nerd-fonts.jetbrains-mono
