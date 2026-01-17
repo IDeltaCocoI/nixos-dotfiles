@@ -25,6 +25,11 @@ in
         stateVersion = "25.05"; 
     };
 
+    programs.bash = {
+        enable = true;
+        enableCompletion = true;
+    };
+
     programs.starship = {
         enable = true;
     };
@@ -60,7 +65,7 @@ in
         spotify
         graphviz
         bison
-        python313Packages.termcolor
+        bash-completion
 
         #Font
         nerd-fonts.jetbrains-mono

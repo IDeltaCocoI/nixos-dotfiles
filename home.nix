@@ -28,6 +28,7 @@ in
 
     programs.bash = {
         enable = true;
+        enableCompletion = true;
         shellAliases = {
             nr = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#corentin";
         };
@@ -75,6 +76,7 @@ in
         sqls
         nixd
         steam
+        bash-completion
     ];
 }
 
