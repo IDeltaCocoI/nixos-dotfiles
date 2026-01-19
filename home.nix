@@ -42,6 +42,9 @@ in
         enable = true;
         userName  = "IDeltaCocoI";
         userEmail = "corentin.louis74@gmail.com";
+        extraConfig = {
+            core.editor = "nvim";
+        };
     };
 
     programs.starship = {
