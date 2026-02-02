@@ -25,11 +25,6 @@ in
         stateVersion = "25.05"; 
     };
 
-    programs.bash = {
-        enable = true;
-        enableCompletion = true;
-    };
-
     programs.starship = {
         enable = true;
     };
