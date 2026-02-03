@@ -61,6 +61,7 @@ in
         graphviz
         bison
         bash-completion
+        cacaprouteokcrashstp
 
         #Font
         nerd-fonts.jetbrains-mono
