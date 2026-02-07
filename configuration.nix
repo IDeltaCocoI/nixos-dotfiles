@@ -78,6 +78,10 @@
         nodejs
         networkmanagerapplet
         xclicker
+        
+        # Java
+        jetbrains.idea-ultimate
+        maven
 
         # C 
         clang 
