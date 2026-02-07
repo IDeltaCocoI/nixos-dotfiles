@@ -82,6 +82,7 @@
         # Java
         jetbrains.idea-ultimate
         maven
+        zulu
 
         # C 
         clang 
