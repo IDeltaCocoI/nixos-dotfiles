@@ -28,9 +28,6 @@ exec --no-startup-id picom -b
 for_window [class=".*"] border pixel 0
 gaps inner 10
 
-# Scaling
-exec --no-startup-id ~/.config/i3/scaling.sh
-
 # Wallpaper
 exec --no-startup-id ~/nixos-dotfiles/wallpapers/wallpapers.sh
 
@@ -38,8 +35,8 @@ exec --no-startup-id ~/nixos-dotfiles/wallpapers/wallpapers.sh
 bindsym $mod+o exec --no-startup-id ~/nixos-dotfiles/config/i3/rotation.sh
 
 # Change touchpad scrolling
-exec --no-startup-id xinput set-prop "Synaptics TM2714-001" "libinput Natural Scrolling Enabled" 1
-exec --no-startup-id xinput set-prop "Synaptics TM2714-001" "libinput Accel Speed" 0.6
+exec --no-startup-id xinput set-prop 10 "libinput Natural Scrolling Enabled" 1
+exec --no-startup-id xinput set-prop 10 "libinput Accel Speed" 0.6
 
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
