@@ -61,7 +61,6 @@ in
         graphviz
         bison
         bash-completion
-        jetbrains.clion
 
         #Font
         nerd-fonts.jetbrains-mono
