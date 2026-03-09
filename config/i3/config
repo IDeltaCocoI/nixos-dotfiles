@@ -35,8 +35,8 @@ exec --no-startup-id ~/nixos-dotfiles/wallpapers/wallpapers.sh
 bindsym $mod+o exec --no-startup-id ~/nixos-dotfiles/config/i3/rotation.sh
 
 # Change touchpad scrolling
-exec --no-startup-id xinput set-prop 10 "libinput Natural Scrolling Enabled" 1
-exec --no-startup-id xinput set-prop 10 "libinput Accel Speed" 0.6
+exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
+exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Accel Speed" 0.1
 
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
