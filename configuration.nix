@@ -96,6 +96,9 @@
         gdb 
         valgrind
 
+        # Python
+        python311Packages.python-lsp-server
+
         # Swift
         swift
         sourcekit-lsp

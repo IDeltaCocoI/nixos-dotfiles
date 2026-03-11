@@ -16,7 +16,15 @@ lspconfig.lua_ls.setup({
 })
 
 -- C/C++
-lspconfig.clangd.setup({})
+lspconfig.clangd.setup({
+  cmd = {
+    "clangd",
+    "--background-index=0",
+    "--clang-tidy=0",
+    "--header-insertion=never",
+    "-j=1",
+  },
+})
 
 -- Python
 lspconfig.pylsp.setup({})
@@ -35,9 +43,6 @@ lspconfig.rust_analyzer.setup({})
 
 -- Nix
 lspconfig.nixd.setup({})
-
--- Swift
-lspconfig.sourcekit.setup({})
 
 vim.diagnostic.config({
   virtual_text = true,
