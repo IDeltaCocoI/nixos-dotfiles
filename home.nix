@@ -35,13 +35,14 @@ in
         bashrcExtra = ''
             export PGDATA="$HOME/postgres_data"
             export PGHOST="/tmp"
+            export PGPORT="5432"
         '';
     };
 
     programs.git = {
         enable = true;
-        userName  = "IDeltaCocoI";
-        userEmail = "corentin.louis74@gmail.com";
+        userName  = "corentin.louis";
+        userEmail = "corentin.louis@epita.fr";
         extraConfig = {
             core.editor = "nvim";
         };
@@ -80,6 +81,8 @@ in
         nixd
         steam
         bash-completion
+
+        jetbrains.webstorm
     ];
 }
 

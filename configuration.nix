@@ -32,7 +32,7 @@
 
     users.users.corentin = {
         isNormalUser = true;
-        extraGroups = [ "wheel" "docker" ];
+        extraGroups = [ "wheel" "docker" "wireshark" "ubridge" ];
         packages = with pkgs; [
             tree
         ];
@@ -96,12 +96,19 @@
         gdb 
         valgrind
 
-        # Python
-        python311Packages.python-lsp-server
-
         # Swift
         swift
         sourcekit-lsp
+
+        # GNS3
+        gns3-server
+        gns3-gui
+        wireshark
+        socat
+
+        # Screnn
+        maim
+        xclip
     ];
 
     fonts.packages = with pkgs; [
@@ -116,6 +123,7 @@
     ];
 
     virtualisation.docker.enable = true;
+    programs.wireshark.enable = true;
 
     security.wrappers.ubridge = {
         source = "${pkgs.ubridge}/bin/ubridge";

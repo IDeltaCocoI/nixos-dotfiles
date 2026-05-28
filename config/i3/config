@@ -79,6 +79,8 @@ bindsym $mod+Shift+i exec ~/.config/i3/i3lock.sh
 bindsym $mod+Shift+b exec --no-startup-id firefox
 # start file manager
 bindsym $mod+Shift+f exec --no-startup-id pcmanfm
+# screen 
+bindsym $mod+Shift+s exec maim -s | xclip -selection clipboard -t image/png
 
 # start a terminal
 bindsym $mod+Return exec alacritty
