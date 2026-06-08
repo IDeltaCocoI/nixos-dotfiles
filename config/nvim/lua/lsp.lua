@@ -44,6 +44,9 @@ lspconfig.rust_analyzer.setup({})
 -- Nix
 lspconfig.nixd.setup({})
 
+-- OCaml
+lspconfig.ocamllsp.setup({})
+
 vim.diagnostic.config({
   virtual_text = true,
   signs = true,

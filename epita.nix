@@ -64,6 +64,9 @@ in
 
         #Font
         nerd-fonts.jetbrains-mono
+
+        ocamlPackages.ocaml-lsp
+        ocaml
     ];
 }
 
