@@ -67,6 +67,7 @@ in
 
         ocamlPackages.ocaml-lsp
         ocaml
+        ocamlformat
     ];
 }
 
