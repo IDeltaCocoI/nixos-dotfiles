@@ -78,6 +78,7 @@
         nodejs
         networkmanagerapplet
         xclicker
+        parsec-bin
         
         # Java
         jetbrains.idea-ultimate
@@ -106,7 +107,7 @@
         wireshark
         socat
 
-        # Screnn
+        # Screen
         maim
         xclip
     ];
