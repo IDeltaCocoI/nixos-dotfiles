@@ -109,6 +109,14 @@
         # Screnn
         maim
         xclip
+
+        # OCaml
+        ocamlPackages.ocaml-lsp
+        ocaml
+        ocamlformat
+
+        # Python
+        python3Packages.python-lsp-server
     ];
 
     fonts.packages = with pkgs; [
