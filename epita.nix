@@ -61,6 +61,7 @@ in
         graphviz
         bison
         bash-completion
+        parsec-bin
 
         #Font
         nerd-fonts.jetbrains-mono
