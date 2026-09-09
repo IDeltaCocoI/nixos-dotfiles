@@ -5,7 +5,6 @@ dotfiles = "${config.home.homeDirectory}/nixos-dotfiles/config";
 create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
 configs = { 
     # Folders
-    nvim = "nvim";
     alacritty = "alacritty";
     rofi = "rofi";
     i3blocks = "i3blocks";
@@ -19,6 +18,8 @@ configs = {
 in 
 
 { 
+    imports = [ ./config/nvim/default.nix ];
+
     home = {
         username = "corentin.louis"; 
         homeDirectory = "/home/corentin.louis"; 
@@ -42,7 +43,6 @@ in
         starship
         btop
         brightnessctl
-        neovim
         lua
         gcc 
         rofi 

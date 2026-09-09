@@ -6,7 +6,6 @@ create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
 configs = { 
     # Folders
     i3 = "i3";
-    nvim = "nvim";
     alacritty = "alacritty";
     rofi = "rofi";
     i3blocks = "i3blocks";
@@ -20,6 +19,8 @@ configs = {
 in 
 
 { 
+    imports = [ ./config/nvim/default.nix ];
+
     home = {
         username = "corentin"; 
         homeDirectory = "/home/corentin"; 
@@ -62,7 +63,6 @@ in
     home.packages = with pkgs; [ 
         alacritty
         starship
-        neovim
         lua 
         gcc 
         rofi 
