@@ -7,6 +7,7 @@
   imports = [
     ./core/settings.nix
     ./core/keymaps.nix
+    ./core/colorscheme.nix
 
     ./plugins/dashboard.nix
     ./plugins/lualine.nix

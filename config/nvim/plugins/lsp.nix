@@ -21,7 +21,11 @@
         jdtls.enable = true;
         sqls.enable = true;
         bashls.enable = true;
-        rust_analyzer.enable = true;
+	rust_analyzer = {
+          enable = true;
+          installCargo = true;
+          installRustc = true;
+        };
         nil_ls.enable = true; # Remplace nixd (recommandé sous Nix)
         ocamllsp.enable = true;
 
@@ -41,8 +45,7 @@
       };
     };
 
-    # Configuration de l'affichage des diagnostics
-    diagnostics = {
+    diagnostic.settings = {
       virtual_text = true;
       signs = true;
       underline = true;
