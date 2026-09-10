@@ -15,7 +15,6 @@
 
     ./plugins/telescope.nix
     ./plugins/flash.nix
-    ./plugins/bufferline.nix
 
     ./plugins/treesitter.nix
     ./plugins/lsp.nix
