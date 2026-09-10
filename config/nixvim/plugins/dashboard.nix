@@ -2,6 +2,7 @@
   programs.nixvim.plugins.dashboard = {
     enable = true;
     settings = {
+      theme = "hyper";
       config = {
         header = [
           " ██████╗  ███████╗ ██╗    ████████╗  █████╗               ██████╗  ██████╗   ██████╗  ██████╗  "
@@ -10,6 +11,19 @@
           " ██║  ██║ ██╔══╝   ██║       ██║    ██╔══██║             ██║      ██║   ██║ ██║      ██║   ██║ "
           " ██████╔╝ ███████╗ ███████╗  ██║    ██║  ██║  █████████╗ ╚██████╗ ╚██████╔╝ ╚██████╗ ╚██████╔╝ "
           " ╚═════╝  ╚══════╝ ╚══════╝  ╚═╝    ╚═╝  ╚═╝  ╚════════╝  ╚═════╝  ╚═════╝   ╚═════╝  ╚═════╝  "
+        ];
+
+        shortcut = [
+          {
+            desc = " Github";
+            action = "!xdg-open https://github.com/IDeltaCocoI"; 
+            key = "g";
+          }
+          {
+            desc = " NixOS Config";
+            action = "Telescope find_files cwd=~/nixos-dotfiles";
+            key = "n";
+          }
         ];
       };
     };

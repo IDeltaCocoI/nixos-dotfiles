@@ -3,19 +3,29 @@
     enable = true;
     settings = {
       options = {
-        component_separators = { left = " "; right = " "; };
-        section_separators = { left = " "; right = " "; };
+        # -- Separators --
+        component_separators = { left = "  "; right = "  "; };
+        section_separators = { left = ""; right = ""; };
+        # -- Single status bar --
         globalstatus = true;
       };
+
+      # -- Bottom bar --
       sections = {
+        # -- Left side --
         lualine_a = [ "mode" ];
         lualine_b = [ "filename" ];
         lualine_c = [ "branch" "diff" ];
-        lualine_x = [ "fileformat" "filetype" ];
+
+        # -- Right side --
+        lualine_x = [ "filetype" ];
+        lualine_y = [ "progres" ];
         lualine_z = [ "location" ];
       };
+
+      # -- Top bar --
       tabline = {
-        lualine_z = [ "buffers" ];
+        lualine_a = [ "buffers" ];
       };
     };
   };

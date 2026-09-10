@@ -2,32 +2,19 @@
   programs.nixvim = {
     plugins.lsp = {
       enable = true;
-      
+
       servers = {
         # --- C/C++ ---
-        clangd = {
-          enable = true;
-          cmd = [
-            "clangd"
-            "--background-index=0"
-            "--clang-tidy=0"
-            "--header-insertion=never"
-            "-j=1"
-          ];
-        };
+        clangd.enable = true;
 
-        # --- Configurations simples ---
+        # --- Python ---
         pylsp.enable = true;
-        jdtls.enable = true;
-        sqls.enable = true;
+
+        # --- Bash ---
         bashls.enable = true;
-	rust_analyzer = {
-          enable = true;
-          installCargo = true;
-          installRustc = true;
-        };
-        nil_ls.enable = true; # Remplace nixd (recommandé sous Nix)
-        ocamllsp.enable = true;
+
+        # --- Nix ---
+        nil_ls.enable = true;
 
         # --- Lua ---
         lua_ls = {
