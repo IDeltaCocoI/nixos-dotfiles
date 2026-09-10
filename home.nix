@@ -19,7 +19,7 @@ configs = {
 in 
 
 { 
-    imports = [ ./config/nvim/default.nix ];
+    imports = [ ./config/nixvim/default.nix ];
 
     home = {
         username = "corentin"; 
