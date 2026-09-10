@@ -23,5 +23,14 @@
       action = "<cmd>bdelete<CR>";
       options.desc = "Delete buffer";
     }
+
+    # -- Disable space in NORMAL mode --
+    {
+      mode = "n";
+      key = "<Space>";
+      action = "<Nop>";
+      options.silent = true;
+      options.desc = "Disable space movement";
+    }
   ];
 }
