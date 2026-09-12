@@ -1,163 +1,163 @@
 { config, lib, pkgs, ... }:
 {
-    imports = [ 
-        ./hardware-configuration.nix 
+  imports = [ 
+    ./hardware-configuration.nix 
+  ];
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
+
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  networking.hostName = "Nixos";
+  networking.networkmanager.enable = true;
+
+  time.timeZone = "Europe/Paris";
+
+  hardware.bluetooth.enable = true;
+
+  services.xserver = {
+    enable = true;
+    autoRepeatDelay = 200;
+    autoRepeatInterval = 35;
+    windowManager.i3.enable = true;
+    #        videoDrivers = [ "amdgpu" ];
+  };
+
+  services.displayManager.ly.enable = true;
+
+  users.users.corentin = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" "docker" "wireshark" "ubridge" ];
+    packages = with pkgs; [
+      tree
+    ];
+  };
+
+  documentation.man.enable = true;
+  documentation.dev.enable = true;
+
+  programs.firefox.enable = true;
+
+  nixpkgs.config.allowUnfree = true;
+  environment.systemPackages = with pkgs; [
+    wget
+    alacritty
+    protonvpn-gui
+    lua-language-server
+    btop
+    brightnessctl
+    vencord
+    feh
+    man
+    man-pages
+    bash
+    coreutils
+    findutils
+    diffutils
+    util-linux
+    gawk
+    less
+    procps
+    shadow
+    which
+    file
+    rofi
+    pcmanfm
+    spotify
+    pulseaudio
+    discord
+    git
+    fastfetch
+    ripgrep
+    fd
+    nodejs
+    networkmanagerapplet
+    xclicker
+    parsec-bin
+
+    # Java
+    jetbrains.idea-ultimate
+    maven
+    zulu
+
+    # C 
+    clang 
+    clang-tools 
+    gcc 
+    glibc.dev 
+    llvm 
+    gnumake 
+    cmake 
+    pkg-config
+    gdb 
+    valgrind
+
+    # Swift
+    swift
+    sourcekit-lsp
+
+    # GNS3
+    gns3-server
+    gns3-gui
+    wireshark
+    socat
+
+    # Screen
+    maim
+    xclip
+
+    # OCaml
+    ocamlPackages.ocaml-lsp
+    ocaml
+    ocamlformat
+
+    # Python
+    python3Packages.python-lsp-server
+  ];
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+  ];
+
+  networking.firewall.allowedTCPPorts = [ ];
+
+  hardware.enableAllFirmware = true;
+  boot.extraModulePackages = [
+    pkgs.linuxPackages.rtl8812au
+  ];
+
+  virtualisation.docker.enable = true;
+  programs.wireshark.enable = true;
+
+  security.wrappers.ubridge = {
+    source = "${pkgs.ubridge}/bin/ubridge";
+    capabilities = "cap_net_admin,cap_net_raw+ep";
+    owner = "root";
+    group = "root";
+    permissions = "0755";
+  };
+
+  hardware.graphics = {
+    enable = true;
+
+    extraPackages = with pkgs; [
+      mesa
+      vulkan-loader
+      vulkan-validation-layers
     ];
 
-    programs.steam = {
-        enable = true;
-        remotePlay.openFirewall = true;
-        dedicatedServer.openFirewall = true;
-    };
-
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.efi.canTouchEfiVariables = true;
-
-    networking.hostName = "Nixos";
-    networking.networkmanager.enable = true;
-
-    time.timeZone = "Europe/Paris";
-
-    hardware.bluetooth.enable = true;
-
-    services.xserver = {
-        enable = true;
-        autoRepeatDelay = 200;
-        autoRepeatInterval = 35;
-        windowManager.i3.enable = true;
-#        videoDrivers = [ "amdgpu" ];
-    };
-
-    services.displayManager.ly.enable = true;
-
-    users.users.corentin = {
-        isNormalUser = true;
-        extraGroups = [ "wheel" "docker" "wireshark" "ubridge" ];
-        packages = with pkgs; [
-            tree
-        ];
-    };
-
-    documentation.man.enable = true;
-    documentation.dev.enable = true;
-
-    programs.firefox.enable = true;
-
-    nixpkgs.config.allowUnfree = true;
-    environment.systemPackages = with pkgs; [
-        wget
-        alacritty
-        protonvpn-gui
-        lua-language-server
-        btop
-        brightnessctl
-        vencord
-        feh
-        man
-        man-pages
-        bash
-        coreutils
-        findutils
-        diffutils
-        util-linux
-        gawk
-        less
-        procps
-        shadow
-        which
-        file
-        rofi
-        pcmanfm
-        spotify
-        pulseaudio
-        discord
-        git
-        fastfetch
-        ripgrep
-        fd
-        nodejs
-        networkmanagerapplet
-        xclicker
-        parsec-bin
-        
-        # Java
-        jetbrains.idea-ultimate
-        maven
-        zulu
-
-        # C 
-        clang 
-        clang-tools 
-        gcc 
-        glibc.dev 
-        llvm 
-        gnumake 
-        cmake 
-        pkg-config
-        gdb 
-        valgrind
-
-        # Swift
-        swift
-        sourcekit-lsp
-
-        # GNS3
-        gns3-server
-        gns3-gui
-        wireshark
-        socat
-
-        # Screen
-        maim
-        xclip
-
-        # OCaml
-        ocamlPackages.ocaml-lsp
-        ocaml
-        ocamlformat
-
-        # Python
-        python3Packages.python-lsp-server
+    extraPackages32 = with pkgs.pkgsi686Linux; [
+      mesa
+      vulkan-loader
     ];
+  };
 
-    fonts.packages = with pkgs; [
-        nerd-fonts.jetbrains-mono
-    ];
-
-    networking.firewall.allowedTCPPorts = [ ];
-
-    hardware.enableAllFirmware = true;
-    boot.extraModulePackages = [
-        pkgs.linuxPackages.rtl8812au
-    ];
-
-    virtualisation.docker.enable = true;
-    programs.wireshark.enable = true;
-
-    security.wrappers.ubridge = {
-        source = "${pkgs.ubridge}/bin/ubridge";
-        capabilities = "cap_net_admin,cap_net_raw+ep";
-        owner = "root";
-        group = "root";
-        permissions = "0755";
-    };
-
-    hardware.graphics = {
-        enable = true;
-
-        extraPackages = with pkgs; [
-            mesa
-            vulkan-loader
-            vulkan-validation-layers
-        ];
-
-        extraPackages32 = with pkgs.pkgsi686Linux; [
-            mesa
-            vulkan-loader
-        ];
-    };
-
-    nix.settings.experimental-features = [ "nix-command" "flakes" ];
-    system.stateVersion = "25.05";
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  system.stateVersion = "25.05";
 }
 
