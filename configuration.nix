@@ -133,6 +133,9 @@
   virtualisation.docker.enable = true;
   programs.wireshark.enable = true;
 
+  programs.zsh.enable = true;
+  users.users.corentin.shell = pkgs.zsh;
+
   security.wrappers.ubridge = {
     source = "${pkgs.ubridge}/bin/ubridge";
     capabilities = "cap_net_admin,cap_net_raw+ep";

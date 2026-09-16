@@ -21,25 +21,13 @@ in
   imports = [
     ./config/nixvim/default.nix
     ./config/kitty/default.nix
+    ./config/zsh/default.nix
   ];
 
   home = {
     username = "corentin"; 
     homeDirectory = "/home/corentin"; 
     stateVersion = "25.05"; 
-  };
-
-  programs.bash = {
-    enable = true;
-    enableCompletion = true;
-    shellAliases = {
-      nr = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#corentin";
-    };
-    bashrcExtra = ''
-            export PGDATA="$HOME/postgres_data"
-            export PGHOST="/tmp"
-            export PGPORT="5432"
-    '';
   };
 
   programs.git = {
