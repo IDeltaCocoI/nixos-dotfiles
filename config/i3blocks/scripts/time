@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-CALENDAR=$(date '+%d-%m-%Y')
-TIME=$(date '+%H:%M')
-
-echo "    $CALENDAR       $TIME "
