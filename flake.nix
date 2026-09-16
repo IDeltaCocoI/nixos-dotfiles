@@ -16,14 +16,17 @@
   outputs = { self, nixpkgs, home-manager, nixvim, ... }@inputs:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; };
+      pkgs = import nixpkgs { 
+        inherit system; 
+        config.allowUnfree = true;
+      };
     in
       {
       nixosConfigurations.corentin = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = { inherit inputs; };
         modules = [
-          ./configuration.nix
+          ./system/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
@@ -35,7 +38,7 @@
 
               users.corentin = {
                 imports = [
-                  ./home.nix
+                  ./home/home.nix
                   nixvim.homeManagerModules.nixvim
                 ];
               };
@@ -48,7 +51,7 @@
         inherit pkgs;
         extraSpecialArgs = { inherit inputs nixvim; };
         modules = [ 
-          ./epita.nix 
+          ./home/epita.nix 
           nixvim.homeManagerModules.nixvim
         ];
       };

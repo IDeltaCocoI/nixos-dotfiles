@@ -1,9 +1,7 @@
-{ config, pkgs, ... }:
-
 {
   programs.zsh = {
     enable = true;
-    defaultKeymap = "viins";
+    defaultKeymap = "emacs";
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
