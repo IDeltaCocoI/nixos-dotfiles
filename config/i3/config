@@ -85,7 +85,7 @@ bindsym $mod+Shift+f exec --no-startup-id pcmanfm
 bindsym $mod+Shift+s exec maim -s | xclip -selection clipboard -t image/png
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill

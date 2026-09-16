@@ -25,7 +25,6 @@
     autoRepeatDelay = 200;
     autoRepeatInterval = 35;
     windowManager.i3.enable = true;
-    #        videoDrivers = [ "amdgpu" ];
   };
 
   services.displayManager.ly.enable = true;
@@ -46,7 +45,7 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     wget
-    alacritty
+    kitty
     protonvpn-gui
     lua-language-server
     btop

@@ -1,11 +1,10 @@
 { config, pkgs, ... }: 
 
 let 
-dotfiles = "${config.home.homeDirectory}/nixos-dotfiles/config";
-create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
-configs = { 
+  dotfiles = "${config.home.homeDirectory}/nixos-dotfiles/config";
+  create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
+  configs = { 
     # Folders
-    alacritty = "alacritty";
     rofi = "rofi";
     i3blocks = "i3blocks";
     polybar = "polybar";
@@ -14,61 +13,64 @@ configs = {
 
     # Files
     "starship.toml" = "starship.toml";
-};
+  };
 in 
 
-{ 
-    imports = [ ./config/nixvim/default.nix ];
+  { 
+  imports = [
+    ./config/nixvim/default.nix
+    ./config/kitty/default.nix
+  ];
 
-    home = {
-        username = "corentin.louis"; 
-        homeDirectory = "/home/corentin.louis"; 
-        stateVersion = "25.05"; 
-    };
+  home = {
+    username = "corentin.louis"; 
+    homeDirectory = "/home/corentin.louis"; 
+    stateVersion = "25.05"; 
+  };
 
-    programs.starship = {
-        enable = true;
-    };
+  programs.starship = {
+    enable = true;
+  };
 
-    home.file.".config/home-manager/epita.nix".source = create_symlink "${config.home.homeDirectory}/nixos-dotfiles/epita.nix";
+  home.file.".config/home-manager/epita.nix".source = create_symlink "${config.home.homeDirectory}/nixos-dotfiles/epita.nix";
 
-    xdg.configFile = builtins.mapAttrs (name: subpath: {
-            source = create_symlink "${dotfiles}/${subpath}";
-            recursive = true;
-            }) configs;
+  xdg.configFile = builtins.mapAttrs (name: subpath: {
+    source = create_symlink "${dotfiles}/${subpath}";
+    recursive = true;
+  }) configs;
 
-    nixpkgs.config.allowUnfree = true;
-    home.packages = with pkgs; [
-        alacritty
-        starship
-        btop
-        brightnessctl
-        lua
-        gcc 
-        rofi 
-        i3blocks-gaps
-        pulseaudio
-        playerctl
-        polybarFull
-        picom
-        fastfetch
-        pre-commit
-        jdt-language-server
-        bash-language-server
-        sqls
-        nixd
-        spotify
-        graphviz
-        bison
-        bash-completion
-        parsec-bin
+  nixpkgs.config.allowUnfree = true;
+  home.packages = with pkgs; [
+    kitty
+    starship
+    btop
+    brightnessctl
+    lua
+    gcc 
+    rofi 
+    i3blocks-gaps
+    pulseaudio
+    playerctl
+    polybarFull
+    picom
+    fastfetch
+    pre-commit
+    jdt-language-server
+    bash-language-server
+    sqls
+    nixd
+    spotify
+    graphviz
+    bison
+    bash-completion
+    parsec-bin
 
-        #Font
-        nerd-fonts.jetbrains-mono
+    #Font
+    nerd-fonts.jetbrains-mono
 
-        ocamlPackages.ocaml-lsp
-        ocaml
-        ocamlformat
-    ];
+    ocamlPackages.ocaml-lsp
+    ocaml
+    ocamlformat
+  ];
 }
 
