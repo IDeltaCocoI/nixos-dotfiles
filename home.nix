@@ -11,9 +11,6 @@ let
     polybar = "polybar";
     picom = "picom";
     fastfetch = "fastfetch";
-
-    # Files
-    "starship.toml" = "starship.toml";
   }; 
 in 
 
@@ -37,10 +34,6 @@ in
     extraConfig = {
       core.editor = "nvim";
     };
-  };
-
-  programs.starship = {
-    enable = true;
   };
 
   home.file.".config/home-manager/home.nix".source = create_symlink "${config.home.homeDirectory}/nixos-dotfiles/home.nix";

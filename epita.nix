@@ -10,9 +10,6 @@ let
     polybar = "polybar";
     picom = "picom";
     fastfetch = "fastfetch";
-
-    # Files
-    "starship.toml" = "starship.toml";
   };
 in 
 
@@ -26,10 +23,6 @@ in
     username = "corentin.louis"; 
     homeDirectory = "/home/corentin.louis"; 
     stateVersion = "25.05"; 
-  };
-
-  programs.starship = {
-    enable = true;
   };
 
   home.file.".config/home-manager/epita.nix".source = create_symlink "${config.home.homeDirectory}/nixos-dotfiles/epita.nix";
