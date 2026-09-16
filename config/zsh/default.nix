@@ -12,7 +12,7 @@
       icat = "kitty +kitten icat";
     };
 
-    initExtra = ''
+    initContent = ''
       export PGDATA="$HOME/postgres_data"
       export PGHOST="/tmp"
       export PGPORT="5432"
