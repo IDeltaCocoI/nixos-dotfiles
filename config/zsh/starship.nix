@@ -40,7 +40,7 @@
       git_commit.format = ''\[[\($hash$tag\)]($style)\]'';
       git_metrics.format = ''\[[+$added]($added_style)\]\[[-$deleted]($deleted_style)\]'';
       git_state.format = ''\[[$state ($progress_current/$progress_total)]($style)\]'';
-      git_status.format = "([\[$all_status$ahead_behind\]]($style))";
+      git_status.format = ''([\[$all_status$ahead_behind\]]($style))'';
       gleam.format = ''\[[$symbol($version)]($style)\]'';
       golang.format = ''\[[$symbol($version)]($style)\]'';
       gradle.format = ''\[[$symbol($version)]($style)\]'';
@@ -78,7 +78,7 @@
       pixi.format = ''\[[$symbol$version( $environment)]($style)\]'';
       pulumi.format = ''\[[$symbol$stack]($style)\]'';
       purescript.format = ''\[[$symbol($version)]($style)\]'';
-      python.format = ''\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'';
+      python.format = ''\[[$${symbol}$${pyenv_prefix}($${version})(\($virtualenv\))]($style)\]'';
       quarto.format = ''\[[$symbol($version)]($style)\]'';
       raku.format = ''\[[$symbol($version-$vm_version)]($style)\]'';
       red.format = ''\[[$symbol($version)]($style)\]'';
