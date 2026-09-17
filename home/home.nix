@@ -5,13 +5,18 @@ let
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
   configs = { 
     # Folders
-    i3 = "i3";
     rofi = "rofi";
     i3blocks = "i3blocks";
     polybar = "polybar";
     picom = "picom";
     fastfetch = "fastfetch";
   }; 
+
+  theme = {
+    fontName = "0xProto Nerd Font";
+    fontPackage = pkgs.nerd-fonts._0xproto;
+    fontSize = 12.0;
+  };
 in 
 
   { 

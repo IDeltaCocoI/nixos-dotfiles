@@ -1,7 +1,7 @@
 {
   imports = [
     ./applications
-    # ./theming
+    ./theming
     ./window-manager
   ];
 }

@@ -23,6 +23,8 @@
         inner = 10;
       };
 
+      bar = [];
+
       floating.modifier = "Mod4";
 
       startup = [
@@ -52,19 +54,6 @@
 
         "XF86MonBrightnessDown" = "exec --no-startup-id brightnessctl set 10%-";
         "XF86MonBrightnessUp" = "exec --no-startup-id brightnessctl set +10%";
-        
-        "modifier+r" = "mode resize";
-      };
-
-      modes.resize = {
-        "Left" = "resize shrink width 10 px or 10 ppt";
-        "Down" = "resize grow height 10 px or 10 ppt";
-        "Up" = "resize shrink height 10 px or 10 ppt";
-        "Right" = "resize grow width 10 px or 10 ppt";
-
-        "Return" = "mode default";
-        "Escape" = "mode default";
-        "modifier+r" = "mode default";
       };
     };
   };
