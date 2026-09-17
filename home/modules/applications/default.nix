@@ -6,5 +6,6 @@
     # -- Folders -- 
     ./zsh
     ./nixvim
+    ./polybar
   ];
 }
