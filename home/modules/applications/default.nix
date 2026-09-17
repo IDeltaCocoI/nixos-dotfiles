@@ -1,8 +1,10 @@
 {
-  inports = [
+  imports = [
+    # -- Files --
     ./kitty.nix
 
-    ./zsh 
-    ./nixvim 
+    # -- Folders -- 
+    ./zsh
+    ./nixvim
   ];
 }
