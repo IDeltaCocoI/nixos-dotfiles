@@ -1,6 +1,6 @@
 { pkgs, ... }:
 
-pkgs.writeShellScriptBin "i3lock" ''
+pkgs.writeShellScriptBin "lock" ''
   #!/usr/bin/env bash
 
   while true; do
@@ -15,6 +15,6 @@ pkgs.writeShellScriptBin "i3lock" ''
           sleep 1
       done
       
-      ${pkgs.killall}/bin/killall i3lock
+      ${pkgs.procps}/bin/pkill i3lock
   done
 ''

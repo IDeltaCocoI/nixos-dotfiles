@@ -49,7 +49,7 @@ in
 
       keybindings = lib.mkOptionDefault {
         "${mod}+o" = "exec --no-startup-id ${scripts.rotation}/bin/rotation";
-        "${mod}+Shift+i" = "exec ${scripts.i3lock}/bin/i3lock";
+        "${mod}+Shift+i" = "exec ${scripts.lock}/bin/lock";
         "${mod}+Shift+b" = "exec --no-startup-id firefox";
         "${mod}+Shift+s" = "exec maim -s | xclip -selection clipboard -t image/png";
         "${mod}+Return" = "exec kitty";
