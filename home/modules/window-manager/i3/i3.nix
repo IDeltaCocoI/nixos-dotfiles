@@ -1,21 +1,26 @@
-{ config, lib, ... }:
+{ config, lib, theme, ... }:
 
+let 
+  mod = "Mod4";
+  menu = "dmenu_run";
+in
 {
   xsession.windowManager.i3 = {
     enable = true;
 
     config = {
-      modifier = "Mod4";
+      modifier = mod;
       
       fonts = {
-        names = [ "JetBrainsMono" ];
-        size = 10.0;
+        names = [ theme.font.name ];
+        size = theme.font.size;
       };
 
       terminal = "kitty";
-      menu = "dmenu_run";
+      menu = menu;
 
       window = {
+        titlebar = false;
         border = 0;
       };
 
@@ -23,9 +28,9 @@
         inner = 10;
       };
 
-      bar = [];
+      bars = [];
 
-      floating.modifier = "Mod4";
+      floating.modifier = mod;
 
       startup = [
         { command = "nm-applet"; always = false; notification = false; }
@@ -40,12 +45,12 @@
       ];
 
       keybindings = lib.mkOptionDefault {
-        "modifier+o" = "exec --no-startup-id ~/.config/i3/rotation.sh";
-        "modifier+Shift+i" = "exec ~/.config/i3/i3lock.sh";
-        "modifier+Shift+b" = "exec --no-startup-id firefox";
-        "modifier+Shift+s" = "exec maim -s | xclip -selection clipboard -t image/png";
-        "modifier+Return" = "exec kitty";
-        "modifier+d" = "exec --no-startup-id ${config.xsession.windowManager.i3.config.menu}";
+        "${mod}+o" = "exec --no-startup-id ~/.config/i3/rotation.sh";
+        "${mod}+Shift+i" = "exec ~/.config/i3/i3lock.sh";
+        "${mod}+Shift+b" = "exec --no-startup-id firefox";
+        "${mod}+Shift+s" = "exec maim -s | xclip -selection clipboard -t image/png";
+        "${mod}+Return" = "exec kitty";
+        "${mod}+d" = "exec --no-startup-id ${menu}";
 
         "XF86AudioRaiseVolume" = "exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1% && pkill -RTMIN+10 i3blocks";
         "XF86AudioLowerVolume" = "exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1% && pkill -RTMIN+10 i3blocks";
