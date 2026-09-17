@@ -1,10 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, theme, ... }:
 
 pkgs.writeShellScriptBin "lock" ''
   #!/usr/bin/env bash
 
   while true; do
-      ${pkgs.i3lock}/bin/i3lock -i ~/nixos-dotfiles/wallpapers/hollow_knight.png
+      ${pkgs.i3lock}/bin/i3lock -i ${theme.lockWallpaper}
       
       SECONDS=0
       while [ $SECONDS -lt 3000 ]; do

@@ -1,11 +1,10 @@
-{ config, pkgs, lib, theme, ... }:
+{ pkgs, lib, theme, ... }:
 
 let 
-  scriptsPath = "${config.home.homeDirectory}/nixos-dotfiles/home/modules/window-manager/i3/scripts";
   mod = "Mod4";
   menu = "dmenu_run";
 
-  scripts = import ./scripts { inherit pkgs; };
+  scripts = import ./scripts { inherit pkgs; inherit theme; };
 in
 {
   xsession.windowManager.i3 = {
@@ -39,7 +38,7 @@ in
         { command = "nm-applet"; always = false; notification = false; }
         { command = "${scripts.polybar}/bin/polybar"; always = false; notification = false; }
         { command = "picom -b"; always = false; notification = false; }
-        { command = "~/nixos-dotfiles/wallpapers/wallpapers.sh"; always = false; notification = false; }
+        { command = "feh --bg-scale ${theme.wallpaper}"; always = false; notification = false; }
         { command = "xinput set-prop \"SynPS/2 Synaptics TouchPad\" \"libinput Natural Scrolling Enabled\" 1"; always = false; notification = false; }
         { command = "xinput set-prop \"SynPS/2 Synaptics TouchPad\" \"libinput Accel Speed\" 0.1"; always = false; notification = false; }
         { command = "xinput set-prop 10 \"libinput Natural Scrolling Enabled\" 1"; always = false; notification = false; }
