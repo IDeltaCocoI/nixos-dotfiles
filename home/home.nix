@@ -11,12 +11,6 @@ let
     picom = "picom";
     fastfetch = "fastfetch";
   }; 
-
-  theme = {
-    fontName = "0xProto Nerd Font";
-    fontPackage = pkgs.nerd-fonts._0xproto;
-    fontSize = 12.0;
-  };
 in 
 
   { 

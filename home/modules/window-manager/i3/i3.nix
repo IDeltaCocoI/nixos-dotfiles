@@ -1,8 +1,11 @@
-{ config, lib, theme, ... }:
+{ config, pkgs, lib, theme, ... }:
 
 let 
+  scriptsPath = "${config.home.homeDirectory}/nixos-dotfiles/home/modules/window-manager/i3/scripts";
   mod = "Mod4";
   menu = "dmenu_run";
+
+  scripts = import ./scripts { inherit pkgs; };
 in
 {
   xsession.windowManager.i3 = {
@@ -34,7 +37,7 @@ in
 
       startup = [
         { command = "nm-applet"; always = false; notification = false; }
-        { command = "~/.config/i3/polybar.sh"; always = false; notification = false; }
+        { command = "${scripts.polybar}/bin/polybar"; always = false; notification = false; }
         { command = "picom -b"; always = false; notification = false; }
         { command = "~/nixos-dotfiles/wallpapers/wallpapers.sh"; always = false; notification = false; }
         { command = "xinput set-prop \"SynPS/2 Synaptics TouchPad\" \"libinput Natural Scrolling Enabled\" 1"; always = false; notification = false; }
@@ -45,8 +48,8 @@ in
       ];
 
       keybindings = lib.mkOptionDefault {
-        "${mod}+o" = "exec --no-startup-id ~/.config/i3/rotation.sh";
-        "${mod}+Shift+i" = "exec ~/.config/i3/i3lock.sh";
+        "${mod}+o" = "exec --no-startup-id ${scripts.rotation}/bin/rotation";
+        "${mod}+Shift+i" = "exec ${scripts.i3lock}/bin/i3lock";
         "${mod}+Shift+b" = "exec --no-startup-id firefox";
         "${mod}+Shift+s" = "exec maim -s | xclip -selection clipboard -t image/png";
         "${mod}+Return" = "exec kitty";
