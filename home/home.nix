@@ -1,7 +1,7 @@
 { config, pkgs, ... }: 
 
 let 
-  dotfiles = "${config.home.homeDirectory}/nixos-dotfiles/config";
+  dotfiles = "${config.home.homeDirectory}/nixos-dotfiles/home/modules";
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
   configs = { 
     # Folders
@@ -16,9 +16,7 @@ in
 
   { 
   imports = [
-    ./config/nixvim/default.nix
-    ./config/kitty/default.nix
-    ./config/zsh/default.nix
+    ./modules
   ];
 
   home = {
@@ -36,7 +34,7 @@ in
     };
   };
 
-  home.file.".config/home-manager/home.nix".source = create_symlink "${config.home.homeDirectory}/nixos-dotfiles/home.nix";
+  home.file.".config/home-manager/home.nix".source = create_symlink "${config.home.homeDirectory}/nixos-dotfiles/home/home.nix";
 
   xdg.configFile = builtins.mapAttrs (name: subpath: { 
     source = create_symlink "${dotfiles}/${subpath}"; 
