@@ -1,6 +1,7 @@
 {
   imports = [
+    ./picom.nix
+
     ./i3
-    # ./picom
   ];
 }
