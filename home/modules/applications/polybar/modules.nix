@@ -191,154 +191,142 @@
     format-background = colors.black;
     tray-background = colors.black;
   };
-
-  "module/battery" = {
-    type = "internal/battery";
-    full-at = 99;
-    low-at = 20;
-    battery = "BAT1";
-    adapter = "ADP1";
-    poll-interval = 5;
-    time-format = "%H:%M";
-
-    format-charging = "<animation-charging><label-charging>";
-    format-charging-foreground = colors.green;
-    format-charging-background = colors.black;
-    label-charging = "%percentage%%";
-    label-charging-foreground = colors.cream;
-    label-charging-background = colors.disabled;
-    label-charging-padding-left = 3;
-    label-charging-padding-rigt = 1;
-
-    format-discharging = "<ramp-capacity><label-discharging>";
-    format-discharging-foreground = colors.green;
-    format-discharging-background = colors.black;
-    label-discharging = "%percentage%%";
-    label-discharging-foreground = colors.cream;
-    label-discharging-background = colors.disabled;
-    label-discharging-padding-left = 3;
-    label-discharging-padding-right = 1;
-
-    format-full = "<ramp-capacity><label-full>";
-    label-full = %percentage%%
-    label-full-foreground = colors.cream;
-    label-full-background = colors.disabled;
-    label-full-padding-left = 3;
-    label-full-padding-right = 1;
   
-    format-low = "<ramp-capacity><label-low>"
-    label-low = %percentage%%
-    label-low-foreground = colors.cream;
-    label-low-background = colors.disabled;
-    label-low-padding-left = 3
-    label-low-padding-right = 1
-
-    ramp-capacity-0 = "     ";
-    ramp-capacity-1 = "     ";
-    ramp-capacity-2 = "     ";
-    ramp-capacity-3 = "     ";
-    ramp-capacity-4 = "     ";
-
-    ramp-capacity-0-padding-left = 1;
-    ramp-capacity-0-padding-right = 3;
+  "module/battery" = {
+      type = "internal/battery";
+      full-at = 99;
+      low-at = 20;
+      battery = "BAT1";
+      adapter = "ADP1";
+      poll-interval = 5;
+      time-format = "%H:%M";
+  
+      format-charging = "<animation-charging><label-charging>";
+      format-charging-foreground = colors.green;
+      format-charging-background = colors.black;
+      label-charging = "%percentage%%";
+      label-charging-foreground = colors.cream;
+      label-charging-background = colors.disabled;
+      label-charging-padding-left = 3;
+      label-charging-padding-right = 1; # Correction typo: rigt -> right
+  
+      format-discharging = "<ramp-capacity><label-discharging>";
+      format-discharging-foreground = colors.green;
+      format-discharging-background = colors.black;
+      label-discharging = "%percentage%%";
+      label-discharging-foreground = colors.cream;
+      label-discharging-background = colors.disabled;
+      label-discharging-padding-left = 3;
+      label-discharging-padding-right = 1;
+  
+      format-full = "<ramp-capacity><label-full>";
+      label-full = "%percentage%%"; # Ajout guillemets et ;
+      label-full-foreground = colors.cream;
+      label-full-background = colors.disabled;
+      label-full-padding-left = 3;
+      label-full-padding-right = 1;
     
-    ramp-capacity-1-padding-left = 1;
-    ramp-capacity-1-padding-right = 3;
-    
-    ramp-capacity-2-padding-left = 1;
-    ramp-capacity-2-padding-right = 3;
-    
-    ramp-capacity-3-padding-left = 1;
-    ramp-capacity-3-padding-right = 3;
-    
-    ramp-capacity-4-padding-left = 1;
-    ramp-capacity-4-padding-right = 3;
-
-    ramp-capacity-0-foreground = colors.red-alt;
-    ramp-capacity-1-foreground = colors.green-alt;
-    ramp-capacity-2-foreground = colors.green-alt;
-    ramp-capacity-3-foreground = colors.green-alt;
-    ramp-capacity-4-foreground = colors.green-alt;
-
-    ramp-capacity-0-background = colors.black;
-    ramp-capacity-1-background = colors.black;
-    ramp-capacity-2-background = colors.black;
-    ramp-capacity-3-background = colors.black;
-    ramp-capacity-4-background = colors.black;
-    
-    bar-capacity-width = 0
-
-    animation-charging-0 = "     ";
-    animation-charging-1 = "     ";
-    animation-charging-2 = "     ";
-    animation-charging-3 = "     ";
-    animation-charging-4 = "     ";
-    animation-charging-framerate = 500;
-
-    animation-charging-0-padding-left = 1
-    animation-charging-0-padding-right = 3
-    
-    animation-charging-1-padding-left = 1
-    animation-charging-1-padding-right = 3
-    
-    animation-charging-2-padding-left = 1
-    animation-charging-2-padding-right = 3
-    
-    animation-charging-3-padding-left = 1
-    animation-charging-3-padding-right = 3
-    
-    animation-charging-4-padding-left = 1
-    animation-charging-4-padding-right = 3
-
-    animation-charging-0-foreground = colors.green;
-    animation-charging-1-foreground = colors.green;
-    animation-charging-2-foreground = colors.green;
-    animation-charging-3-foreground = colors.green;
-    animation-charging-4-foreground = colors.green;
-    
-    animation-charging-0-background = colors.black;
-    animation-charging-1-background = colors.black;
-    animation-charging-2-background = colors.black;
-    animation-charging-3-background = colors.black;
-    animation-charging-4-background = colors.black;
-    
-    animation-discharging-0 =[  ];
-    animation-discharging-1 =[  ];
-    animation-discharging-2 =[  ];
-    animation-discharging-3 =[  ];
-    animation-discharging-4 =[  ];
-    animation-discharging-framerate = 500;
-    
-    animation-discharging-0-padding-left = 1;
-    animation-discharging-0-padding-right = 3;
-    
-    animation-discharging-1-padding-left = 1;
-    animation-discharging-1-padding-right = 3;
-    
-    animation-discharging-2-padding-left = 1;
-    animation-discharging-2-padding-right = 3;
-    
-    animation-discharging-3-padding-left = 1;
-    animation-discharging-3-padding-right = 3;
-    
-    animation-discharging-4-padding-left = 1;
-    animation-discharging-4-padding-right = 3;
-    
-    animation-discharging-0-foreground = colors.cream;
-    animation-discharging-1-foreground = colors.cream;
-    animation-discharging-2-foreground = colors.cream;
-    animation-discharging-3-foreground = colors.cream;
-    animation-discharging-4-foreground = colors.cream;
-    
-    animation-discharging-0-background = colors.green-alt;
-    animation-discharging-1-background = colors.green-alt;
-    animation-discharging-2-background = colors.green-alt;
-    animation-discharging-3-background = colors.green-alt;
-    animation-discharging-4-background = colors.green-alt;
-    
-    animation-low-0 = !;
-    animation-low-1 = !!;
-    animation-low-framerate = 200;
+      format-low = "<ramp-capacity><label-low>"; # Ajout ;
+      label-low = "%percentage%%"; # Ajout guillemets et ;
+      label-low-foreground = colors.cream;
+      label-low-background = colors.disabled;
+      label-low-padding-left = 3; # Ajout ;
+      label-low-padding-right = 1; # Ajout ;
+  
+      ramp-capacity-0 = "     ";
+      ramp-capacity-1 = "     ";
+      ramp-capacity-2 = "     ";
+      ramp-capacity-3 = "     ";
+      ramp-capacity-4 = "     ";
+  
+      ramp-capacity-0-padding-left = 1;
+      ramp-capacity-0-padding-right = 3;
+      ramp-capacity-1-padding-left = 1;
+      ramp-capacity-1-padding-right = 3;
+      ramp-capacity-2-padding-left = 1;
+      ramp-capacity-2-padding-right = 3;
+      ramp-capacity-3-padding-left = 1;
+      ramp-capacity-3-padding-right = 3;
+      ramp-capacity-4-padding-left = 1;
+      ramp-capacity-4-padding-right = 3;
+  
+      ramp-capacity-0-foreground = colors.red-alt;
+      ramp-capacity-1-foreground = colors.green-alt;
+      ramp-capacity-2-foreground = colors.green-alt;
+      ramp-capacity-3-foreground = colors.green-alt;
+      ramp-capacity-4-foreground = colors.green-alt;
+  
+      ramp-capacity-0-background = colors.black;
+      ramp-capacity-1-background = colors.black;
+      ramp-capacity-2-background = colors.black;
+      ramp-capacity-3-background = colors.black;
+      ramp-capacity-4-background = colors.black;
+      
+      bar-capacity-width = 0; # Ajout ;
+  
+      animation-charging-0 = "     ";
+      animation-charging-1 = "     ";
+      animation-charging-2 = "     ";
+      animation-charging-3 = "     ";
+      animation-charging-4 = "     ";
+      animation-charging-framerate = 500;
+  
+      animation-charging-0-padding-left = 1; # Ajout ;
+      animation-charging-0-padding-right = 3; # Ajout ;
+      animation-charging-1-padding-left = 1; # Ajout ;
+      animation-charging-1-padding-right = 3; # Ajout ;
+      animation-charging-2-padding-left = 1; # Ajout ;
+      animation-charging-2-padding-right = 3; # Ajout ;
+      animation-charging-3-padding-left = 1; # Ajout ;
+      animation-charging-3-padding-right = 3; # Ajout ;
+      animation-charging-4-padding-left = 1; # Ajout ;
+      animation-charging-4-padding-right = 3; # Ajout ;
+  
+      animation-charging-0-foreground = colors.green;
+      animation-charging-1-foreground = colors.green;
+      animation-charging-2-foreground = colors.green;
+      animation-charging-3-foreground = colors.green;
+      animation-charging-4-foreground = colors.green;
+      
+      animation-charging-0-background = colors.black;
+      animation-charging-1-background = colors.black;
+      animation-charging-2-background = colors.black;
+      animation-charging-3-background = colors.black;
+      animation-charging-4-background = colors.black;
+      
+      animation-discharging-0 = "[  ]"; # Ajout guillemets
+      animation-discharging-1 = "[  ]"; # Ajout guillemets
+      animation-discharging-2 = "[  ]"; # Ajout guillemets
+      animation-discharging-3 = "[  ]"; # Ajout guillemets
+      animation-discharging-4 = "[  ]"; # Ajout guillemets
+      animation-discharging-framerate = 500;
+      
+      animation-discharging-0-padding-left = 1;
+      animation-discharging-0-padding-right = 3;
+      animation-discharging-1-padding-left = 1;
+      animation-discharging-1-padding-right = 3;
+      animation-discharging-2-padding-left = 1;
+      animation-discharging-2-padding-right = 3;
+      animation-discharging-3-padding-left = 1;
+      animation-discharging-3-padding-right = 3;
+      animation-discharging-4-padding-left = 1;
+      animation-discharging-4-padding-right = 3;
+      
+      animation-discharging-0-foreground = colors.cream;
+      animation-discharging-1-foreground = colors.cream;
+      animation-discharging-2-foreground = colors.cream;
+      animation-discharging-3-foreground = colors.cream;
+      animation-discharging-4-foreground = colors.cream;
+      
+      animation-discharging-0-background = colors.green-alt;
+      animation-discharging-1-background = colors.green-alt;
+      animation-discharging-2-background = colors.green-alt;
+      animation-discharging-3-background = colors.green-alt;
+      animation-discharging-4-background = colors.green-alt;
+      
+      animation-low-0 = "!"; # Ajout guillemets
+      animation-low-1 = "!!"; # Ajout guillemets
+      animation-low-framerate = 200;
   };
 
   "module/backlight" = {
