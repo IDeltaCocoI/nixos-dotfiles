@@ -11,13 +11,17 @@
       url = "github:nix-community/nixvim/nixos-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixvim, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nixvim, nixos-wsl, ... }@inputs:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs { 
-        inherit system; 
+      pkgs = import nixpkgs {
+        inherit system;
         config.allowUnfree = true;
       };
     in
@@ -50,10 +54,39 @@
       homeConfigurations.epita = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = { inherit inputs nixvim; };
-        modules = [ 
-          ./home/epita.nix 
+        modules = [
+          ./home/epita.nix
           nixvim.homeManagerModules.nixvim
         ];
       };
-    };
+
+      nixosConfigurations.wsl = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = { inherit inputs; };
+        modules = [
+          nixos-wsl.nixosModules.default
+          {
+            wsl.enable = true;
+            wsl.defaultUser = "corentin";
+          }
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              backupFileExtension = "backup";
+
+              extraSpecialArgs = { inherit inputs nixvim; };
+
+              users.corentin = {
+                imports = [
+                  ./home/wsl.nix
+                  nixvim.homeManagerModules.nixvim
+                ];
+              };
+            };
+          }
+        ];
+      };
+   };
 }
