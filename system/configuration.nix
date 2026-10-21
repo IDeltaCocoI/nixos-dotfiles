@@ -44,14 +44,7 @@
 
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    wget
-    kitty
-    protonvpn-gui
-    lua-language-server
-    btop
-    brightnessctl
-    vencord
-    feh
+    git
     man
     man-pages
     bash
@@ -65,58 +58,6 @@
     shadow
     which
     file
-    rofi
-    pcmanfm
-    spotify
-    pulseaudio
-    discord
-    git
-    fastfetch
-    ripgrep
-    fd
-    nodejs
-    networkmanagerapplet
-    xclicker
-    parsec-bin
-
-    # Java
-    jetbrains.idea-ultimate
-    maven
-    zulu
-
-    # C 
-    clang 
-    clang-tools 
-    gcc 
-    glibc.dev 
-    llvm 
-    gnumake 
-    cmake 
-    pkg-config
-    gdb 
-    valgrind
-
-    # Swift
-    swift
-    sourcekit-lsp
-
-    # GNS3
-    gns3-server
-    gns3-gui
-    wireshark
-    socat
-
-    # Screen
-    maim
-    xclip
-
-    # OCaml
-    ocamlPackages.ocaml-lsp
-    ocaml
-    ocamlformat
-
-    # Python
-    python3Packages.python-lsp-server
   ];
 
   fonts.packages = with pkgs; [
